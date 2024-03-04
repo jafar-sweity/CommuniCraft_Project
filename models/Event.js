@@ -1,32 +1,34 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/sequelize.js'; 
 
-const Admin = sequelize.define('Admin', {
-  admin_id: {
+const Event = sequelize.define('Event', {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  username: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  password: {
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  location: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  full_name: {
-    type: DataTypes.STRING,
+  amount: {
+    type: DataTypes.DECIMAL(10, 2), // 10 digits, 2 decimal places
     allowNull: false,
   },
 }, {
-  tableName: 'Admins',
-  //timestamps: false, 
+  tableName: 'events',
 });
 
-export default Admin;
+export default Event;
