@@ -1,7 +1,9 @@
 // app.js
-
+import 'dotenv/config';
 import express from 'express';
 import sequelize from './config/sequelize.js';
+import router from './routes/router.js';
+import './models/Admins.js';
 
 import AuthRouter from './routes/AuthRouter.js';
 const app = express();
@@ -12,6 +14,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to the homepage');
 });
 
+app.use(router);
 
 
 sequelize.sync().then(() => {
