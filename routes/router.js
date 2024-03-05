@@ -1,6 +1,18 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
-router.get('/', (req, res) => {
-    res.send('Hello World');
-});
+
+import employeeRoutes from "./employeeRoutes.js";
+import eventRoutes from "./eventRoutes.js";
+import projectRoutes from "./projectRoutes.js";
+import skillRoutes from "./skillRoutes.js";
+import adminRoutes from "./adminRoutes.js";
+import projectManagerRoutes from "./projectManagerRoutes.js";
+
+router.use("/events", eventRoutes);
+router.use("/projects", projectRoutes);
+router.use("/skills", skillRoutes);
+router.use("/employee", employeeRoutes);
+router.use("/admin", adminRoutes);
+router.use("/project-manager", projectManagerRoutes);
+
 export default router;
