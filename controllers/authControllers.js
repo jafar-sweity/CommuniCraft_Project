@@ -1,35 +1,90 @@
 import express from "express";
 import bcrypt from 'bcrypt';
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
+import cookieParser from "cookie-parser";
+import User  from "../models/User.js";
+import IsEmail from "isemail";
 export const router = express.Router();
 
-
-export const signup = async(req, res) => {    
-const { username, password, email, full_name } = req.body;
-    
-try {
-    
-    const user = await Admin.create({ username, password, email, full_name });
-    
-
-    res.status(201).json(user);
-
-}   
-catch (error) {
-    res.status(400).json({ error: error.message });
+const createToken = (id, email) => {
+  return jwt.sign({ id, email }, process.env.SECRET_KEY || '', {
+    expiresIn: 7 * 24 * 60 * 60 // 1 week
+  });
 }
+export const signup = async(userData) => {    
+ const { name, role, status, email, mobile_number, password, profile_picture_url, bio, salary } = userData;
+
+  try {
+
+    // Check if the email is valid
+    if (!IsEmail.validate(email)) {
+      return { error: 'Invalid email', success: false};
+    }
+
+    // Check if the password is valid
+    if (password.length < 6) {
+      return { error: 'Password must be at least 6 characters long', success: false};
+    }
+
+    // Check if the user already exists in the database
+    const user = await User.findOne({ where: { email } });
+    if (user) {
+      return { error: 'User email already exists' ,success: false};
+    }
+
+    
+    // Create a new user in the database
+    const newUser = await User.create({
+      name,
+      role,
+      status,
+      email,
+      mobile_number,
+      password,
+      profile_picture_url, // Assuming profile_picture_url is a string
+      bio,
+      salary
+    });
+
+    return { message: `User ${newUser.name} created successfully`, success: true, token: createToken(newUser.id, newUser.email)};
+  }   
+  catch (error) {
+    return { error: error.message ,success: false};
+  }
 };
 
-export const login = (req, res) => {   
-    res.send("Login route");
-
-};
 
 
 
-export const logout = (req, res) => {
-    res.send("Logout route");
-};
+export const login = async (userData) => {
+  const { email, password } = userData;
+  try {
+  
+
+    // Check if the user exists in the database
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      return { error: 'User does not exist', success: false};
+    }
+
+    // Check if the password is correct
+    const passwordIsValid = await bcrypt.compare(password, user.password);
+    if (!passwordIsValid) {
+      return { error: 'Invalid password', success: false};
+    }
+
+    const token = jwt.sign({ id: user.id, email: user.email }, process.env.SECRET_KEY || '', {
+      expiresIn: 7 * 24 * 60 * 60 // 1 week
+    });
+
+   
+
+    return { user, token, success: true};
+  } catch (error) {
+    return { error: error.message, success: false};
+  }
+}
+
 
 export const forgotPassword = (req, res) => {
     res.send("Forgot Password route");
