@@ -11,8 +11,8 @@ import projectManagerRoutes from "./projectManagerRoutes.js";
 router.use("/events", eventRoutes);
 router.use("/projects", projectRoutes);
 router.use("/skills", skillRoutes);
-router.use("/employee", employeeRoutes);
-router.use("/admin", adminRoutes);
+router.use("/employee/:id", employeeRoutes);
+router.use("/admin/:id", adminRoutes);
 router.use("/project-manager", projectManagerRoutes);
 
 export default router;

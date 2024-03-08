@@ -1,5 +1,5 @@
-const welcom = (req, res) => {
+const profile = (req, res) => {
   res.send("Hello lqlq");
 };
 
-export { welcom };
+export { profile };

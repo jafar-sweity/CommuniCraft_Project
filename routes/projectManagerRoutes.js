@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 import {} from "../controllers/projectManagerController.js";
-router.route("/:id/project/:project-id/create-task").post();
+router.route("/:id/project/:projectID").post();
 router
-  .route("/:id/project/:project-id/task/:task-id/assign/:employee-id")
+  .route("/:id/project/:projectID/task/:taskID/assign-to/employee/:employeeID")
   .post();
 export default router;
