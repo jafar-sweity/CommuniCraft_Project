@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/auth', AuthRouter);
 app.get('/', (req, res) => {
-  res.send('Welcome to the homepage');
+  res.send('Welcome tooooo the homepage');
 });
 
 

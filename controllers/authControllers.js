@@ -7,7 +7,7 @@ import IsEmail from "isemail";
 export const router = express.Router();
 
 const createToken = (id, email) => {
-  return jwt.sign({ id, email }, process.env.SECRET_KEY || '', {
+  return jwt.sign({ email }, process.env.SECRET_KEY || '', {
     expiresIn: 7 * 24 * 60 * 60 // 1 week
   });
 }
@@ -49,6 +49,7 @@ export const signup = async(userData) => {
     return { message: `User ${newUser.name} created successfully`, success: true, token: createToken(newUser.id, newUser.email)};
   }   
   catch (error) {
+    console.log(error);
     return { error: error.message ,success: false};
   }
 };
@@ -79,14 +80,14 @@ export const login = async (userData) => {
 
    
 
-    return { user, token, success: true};
+    return { token, success: true, role: user.role, message: `User ${user.name} logged in successfully`};
   } catch (error) {
     return { error: error.message, success: false};
   }
 }
 
-
 export const forgotPassword = (req, res) => {
     res.send("Forgot Password route");
     
 }
+
