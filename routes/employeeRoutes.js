@@ -3,7 +3,7 @@ const router = express.Router();
 import { profile } from "../controllers/employeeController.js";
 
 router.route("/").get(profile);
-
+router.get;
 router.route("/tasks").get();
 router.route("/task/:taskID").put();
 
@@ -16,8 +16,8 @@ router.route("/tools").get().post();
 router.route("/tool/:toolID").put().delete();
 
 //same as tools
-router.route("/skills").post();
-router.route("/skill/:skillID").post();
+router.route("/skills").post().get();
+router.route("/skill/:skillID").post().delete();
 
 router.route("/event/:eventID").post();
 export default router;
