@@ -3,7 +3,6 @@ const router = express.Router();
 import { profile } from "../controllers/employeeController.js";
 
 router.route("/").get(profile);
-router.get;
 router.route("/tasks").get();
 router.route("/task/:taskID").put();
 
