@@ -14,7 +14,7 @@ router.use("/projects", projectRoutes);
 router.use("/skills", skillRoutes);
 router.use("/employee/:id", employeeRoutes);
 router.use("/admin", adminRoutes);
-router.use("/project-manager/:id", projectManagerRoutes);
+router.use("/project-manager", projectManagerRoutes);
 router.use("/auth", authRouter);
 
 export default router;

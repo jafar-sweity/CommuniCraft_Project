@@ -3,10 +3,8 @@ const router = express.Router();
 import { profile } from "../controllers/employeeController.js";
 
 router.route("/").get(profile);
-router.get;
 router.route("/tasks").get();
 router.route("/task/:taskID").put();
-
 router.route("/tools").get().post();
 // this toolsID is the id in the tools table not in the user-tools table
 // the user see the tools in the table then select an id from them and insert
