@@ -24,44 +24,53 @@ const getAllCompanyEventRelations = async (req, res) => {
       });
     }
   };
-
-  const  getCompanyEventRelationById = async (req, res) => {
-    try {
-      const companyEventRelations = await User.findByPk(req.params.id);
-      if (companyEventRelations) {
-        res.status(200).send(companyEventRelations);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Relation with id=${req.params.id}.`
-        });
+  
+//Get all Events that manage by specific Company
+const  getEventsByCompanyId = async (req, res) => {
+  try {
+    const{id} = req.params;
+    const events = await CompaniesEvents.findAll({
+      where: {
+        company_id: id
       }
-    } catch (error) {
-      res.status(500).send({
-        message: error.message || 'Error retrieving Relation with id=' + req.params.id
+    })
+    if (events.length) {
+      res.status(200).send(events);
+    } else {
+      res.status(404).send({
+        message: `The Company with id=${id} has not manage any Event yet.`
       });
     }
-  };
+  } catch (error) {
+    res.status(500).send({
+      message: error.message || 'Error retrieving Events for Company with id=' + id
+    });
+  }
+};
 
-  const updateCompanyEventRelation = async (req, res) => {
-    try {
-      const num = await CompaniesEvents.update(req.body, {
-        where: { id: req.params.id }
-      });
-      if (num == 1) {
-        res.send({
-          message: 'Relation was updated successfully.'
-        });
-      } else {
-        res.send({
-          message: `Cannot update Relation with id=${req.params.id}. Maybe Relation was not found or req.body is empty!`
-        });
+//Get all Companies that manage specific Event 
+const  getCompniesByEventId = async (req, res) => {
+  const{id} = req.params;
+  try {
+    const company = await CompaniesEvents.findAll({
+      where: {
+      event_id: id
       }
-    } catch (error) {
-      res.status(500).send({
-        message: 'Error updating Relation with id=' + req.params.id
+    })
+    if (company.length) {
+      res.status(200).send(company);
+    } else {
+      res.status(404).send({
+        message: `There is no companies manage the Event with id=${id}.`
       });
     }
-  };
+  } catch (error) {
+    res.status(500).send({
+      message: error.message || 'Error retrieving companies for Event with id=' + id
+    });
+  }
+};
+
 
   const deleteCompanyEventRelation = async (req, res) => {
     try {
@@ -87,7 +96,7 @@ const getAllCompanyEventRelations = async (req, res) => {
 export {
     createCompanyEventRelation,
     getAllCompanyEventRelations,
-    getCompanyEventRelationById,
-    updateCompanyEventRelation,
+    getCompniesByEventId,
+    getEventsByCompanyId,
     deleteCompanyEventRelation
 };

@@ -12,7 +12,6 @@ const createTask = async (req, res) => {
 
       })
     }
-
 };
 
  //Get all Tasks .
@@ -29,9 +28,9 @@ const getAllTasks = async (req, res) => {
   };
 
   //Get Task by id.
-  const  getTasksById = async (req, res) => {
+  const  getTaskById = async (req, res) => {
     try {
-      const{id} = req.params;
+      const {id} = req.params;
       const tasks = await Task.findByPk(id)
       if (tasks) {
         res.status(200).send(tasks);
@@ -146,7 +145,7 @@ const getAllTasks = async (req, res) => {
 export {
     createTask,
     getAllTasks,
-    getTasksById,
+    getTaskById,
     getTasksByProjectId,
     getTasksByUserId,
     updateTask,
