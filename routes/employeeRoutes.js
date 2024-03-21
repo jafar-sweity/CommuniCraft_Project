@@ -1,21 +1,48 @@
 import express from "express";
 const router = express.Router();
-import { profile } from "../controllers/employeeController.js";
+import * as employeeController from "../controllers/employeeController.js";
+// Profile
+router
+  .route("/:id/profile")
+  .get(employeeController.getMyProfile)
+  .put(employeeController.updateMyProfile);
 
-router.route("/").get(profile);
-router.route("/tasks").get();
-router.route("/task/:taskID").put();
-router.route("/tools").get().post();
-// this toolsID is the id in the tools table not in the user-tools table
-// the user see the tools in the table then select an id from them and insert
-//it in the user-tools table
-// but if the tool he needed is not in the tools table he can
-//add it there before using the previous request
-router.route("/tool/:toolID").put().delete();
+// Project
+router.route("/projects").get(employeeController.showAllProjects);
+router.route("/project/:project_id").get(employeeController.showProject);
+router.route("/:userId/myProjects").get(employeeController.showMyProject); ////
 
-//same as tools
-router.route("/skills").post().get();
-router.route("/skill/:skillID").post().delete();
+// Task
+router.route("/:userId/myTasks").get(employeeController.showMyTasks); ////
+router.route("/task/:taskId").get(employeeController.showTask); ////
 
-router.route("/event/:eventID").post();
+// Skill
+router
+  .route("/skills")
+  .get(employeeController.showAllSkills)
+  .post(employeeController.addNewSkill);
+router.route("/:id/mySkills").get(employeeController.getMySkills);
+router.route("/mySkill").post(employeeController.addAvailabilSkill);
+router.route("/skill/:id").delete(employeeController.deleteSkill);
+
+// Tool
+router
+  .route("/tools")
+  .get(employeeController.getTools)
+  .post(employeeController.addNewTool);
+router.route("/sharingTools").get(employeeController.getSharingTools);
+router.route("/:id/myTools").get(employeeController.getMyTools);
+router.route("/myTool").post(employeeController.addTool);
+router
+  .route("/tool/:id")
+  .delete(employeeController.deleteTool)
+  .put(employeeController.updateTool);
+
+// Event
+router.route("/events").get(employeeController.getAllEvent);
+router.route("/event/:id").get(employeeController.ShowEvent);
+router.route("/:id/myEvents").get(employeeController.showMyEvents);
+router.route("/register/event").post(employeeController.registerInEvent);
+router.route("/register/event/:id").delete(employeeController.deleteRegister);
+
 export default router;

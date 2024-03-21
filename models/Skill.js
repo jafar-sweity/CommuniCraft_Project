@@ -24,4 +24,6 @@ const Skill = sequelize.define(
   }
 );
 
+
+
 export default Skill;

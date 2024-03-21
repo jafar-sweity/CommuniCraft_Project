@@ -1,4 +1,5 @@
 import Task from "../models/Task.js";
+import Project from "../models/Project.js";
 
 const createTask = async (req, res) => {
   try {
@@ -16,7 +17,6 @@ const createTask = async (req, res) => {
 
 //Get all Tasks .
 const getAllTasks = async (req, res) => {
-  const { id } = req.params;
   try {
     const tasks = await Task.findAll();
     res.status(200).send(tasks);
@@ -30,41 +30,76 @@ const getAllTasks = async (req, res) => {
 //Get Task by id.
 const getTaskById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const tasks = await Task.findByPk(id);
+    const { taskId } = req.params;
+    const tasks = await Task.findByPk(taskId);
     if (tasks) {
       res.status(200).send(tasks);
     } else {
       res.status(404).send({
-        message: `Cannot find Task with id=${id}.`,
+        message: `Cannot find Task with id=${taskId}.`,
       });
     }
   } catch (error) {
     res.status(500).send({
-      message: error.message || "Error retrieving Task with id=" + id,
+      message:
+        error.message || "Error retrieving Task with id=" + req.params.taskId,
     });
   }
 };
-
 //Get Tasks for specific User.
 const getTasksByUserId = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { userId } = req.params;
     const tasks = await Task.findAll({
       where: {
-        user_id: id,
+        user_id: userId,
       },
     });
     if (tasks.length) {
       res.status(200).send(tasks);
     } else {
       res.status(404).send({
-        message: `The user with id=${id} has no tasks to do yet.`,
+        message: `The user with id=${userId} has no tasks to do yet.`,
       });
     }
   } catch (error) {
     res.status(500).send({
-      message: error.message || "Error retrieving Tasks for user with id=" + id,
+      message:
+        error.message || "Error retrieving Tasks for user with id=" + userId,
+    });
+  }
+};
+
+// Get my projects
+const getMyProjects = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const projectsIds = await Task.findAll({
+      attributes: ["project_id"],
+      where: { user_id: userId },
+    });
+    const projectsNames = await Promise.all(
+      projectsIds.map(async (task) => {
+        const projectId = task.project_id;
+        //get project name for each id..
+        const projectName = await Project.findByPk(projectId, {
+          attributes: ["name"],
+        });
+        return projectName.name;
+      })
+    );
+
+    if (projectsNames.length) {
+      res.status(200).send({ projectsNames: projectsNames });
+    } else {
+      res.status(404).send({
+        message: `The user with id=${userId} has no projects .`,
+      });
+    }
+  } catch (error) {
+    res.status(500).send({
+      message:
+        error.message || "Error retrieving projects for user with id=" + userId,
     });
   }
 };
@@ -89,18 +124,18 @@ const getTasksByProjectId = async (req, res) => {
     res.status(500).send({
       message:
         error.message ||
-        "Error retrieving Tasks for project with id=" + projectId,
+        `Error retrieving Tasks for project with id=` + req.params.projectId,
     });
   }
 };
 
 //The Project Manager can chang the Employee responsible for specific Task.
 const updateTask = async (req, res) => {
-  const { id } = req.params;
+  const { taskId } = req.params;
   try {
     const num = await Task.update(req.body, {
       where: {
-        task_id: id,
+        task_id: taskId,
       },
     });
     if (num == 1) {
@@ -109,22 +144,22 @@ const updateTask = async (req, res) => {
       });
     } else {
       res.send({
-        message: `Cannot update Task with id=${id}. Maybe Task was not found or req.body is empty!`,
+        message: `Cannot update Task with id=${taskId}. Maybe Task was not found or req.body is empty!`,
       });
     }
   } catch (error) {
     res.status(500).send({
-      message: "Error updating Task with id=" + id,
+      message: "Error updating Task with id=" + taskId,
     });
   }
 };
 
 const deleteTaskById = async (req, res) => {
-  const { id } = req.params;
+  const { taskId } = req.params;
   try {
     const num = await Task.destroy({
       where: {
-        task_id: id,
+        task_id: taskId,
       },
     });
     if (num == 1) {
@@ -133,12 +168,12 @@ const deleteTaskById = async (req, res) => {
       });
     } else {
       res.send({
-        message: `Cannot delete Task with id=${req.params.id}. Maybe Task was not found!`,
+        message: `Cannot delete Task with id=${req.params.taskId}. Maybe Task was not found!`,
       });
     }
   } catch (error) {
     res.status(500).send({
-      message: "Could not delete Task with id=" + req.params.id,
+      message: "Could not delete Task with id=" + req.params.taskId,
     });
   }
 };
@@ -151,4 +186,5 @@ export {
   getTasksByUserId,
   updateTask,
   deleteTaskById,
+  getMyProjects,
 };

@@ -1,5 +1,5 @@
 import express from "express";
-import sequelize from "./config/sequelize.js";
+import {sequelize} from "./models/index.js";
 import router from "./routes/router.js";
 import "./models/index.js";
 import dotenv from "dotenv";
