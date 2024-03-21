@@ -19,7 +19,7 @@ AuthRouter.post('/login', async (req, res) => {
     if(response.success){
         res.cookie('token', response.token, { httpOnly: true , maxAge: 7 * 24 * 60 * 60 * 1000});
         res.cookie('Role', response.role, { maxAge: 7 * 24 * 60 * 60 * 1000});
-
+        
         res.status(200).send(response);
     }
     else{

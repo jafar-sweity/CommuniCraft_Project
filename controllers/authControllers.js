@@ -16,6 +16,10 @@ export const signup = async(userData) => {
 
   try {
 
+    //name is required
+    if (!name) {
+      return { error: 'Name is required', success: false};
+    }
     // Check if the email is valid
     if (!IsEmail.validate(email)) {
       return { error: 'Invalid email', success: false};
