@@ -21,7 +21,7 @@ const initialaizeChatSystem = (app) => {
   app.use(express.static(path.join(__dirname, "public")));
 
   // ChatCord Bot name
-  const botName = "ChatCord Bot";
+  const botName = "CommuniCraft App";
 
   // Run when client connects
   io.on("connection", (socket) => {
@@ -31,7 +31,7 @@ const initialaizeChatSystem = (app) => {
       socket.join(user.room);
 
       // Welcome current user
-      socket.emit("message", formatMessage(botName, "Welcome to ChatCord!"));
+      socket.emit("message", formatMessage(botName, "Welcome <3 "));
 
       // Broadcast when a user connects
       socket.broadcast
