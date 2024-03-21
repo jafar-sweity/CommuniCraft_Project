@@ -1,5 +1,5 @@
 import UsersEvents from "../models/UsersEvents.js";
-
+import Event from "../models/Event.js";
 const createUserEventRelation = async (req, res) => {
     try {
       const UserEventRelation = await UsersEvents.create(req.body);
@@ -29,13 +29,21 @@ const getAllUserEventRelations = async (req, res) => {
   const  getEventsByUserId = async (req, res) => {
     try {
       const{id} = req.params;
-      const Events = await UsersEvents.findAll({
-        where: {
-          user_id: id
-        }
-      })
-      if (Events.length) {
-        res.status(200).send(Events);
+      const eventsIds = await UsersEvents.findAll({
+        attributes: ["event_id"],
+        where: {user_id: id  }
+      });
+      const eventsNames = await Promise.all(eventsIds.map(async (eventUser) =>{
+        const eventId = eventUser.event_id;
+        //get project name for each id..
+        const eventName = await Event.findByPk( eventId, {
+        //  attributes: ["name"]
+        }); 
+        return  eventName;
+       }))
+
+      if (eventsNames.length) {
+        res.status(200).send({eventsNames: eventsNames});
       } else {
         res.status(404).send({
           message: `The user with id=${id} has not register in any Event yet.`
@@ -46,7 +54,7 @@ const getAllUserEventRelations = async (req, res) => {
         message: error.message || 'Error retrieving Events for user with id=' + id
       });
     }
-  };
+  }
   
   //Get all users register in specific Event 
   const  getUsersByEventId = async (req, res) => {

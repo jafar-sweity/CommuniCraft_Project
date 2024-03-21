@@ -1,5 +1,5 @@
 import UsersSkills from "../models/UsersSkills.js";
-
+import Skill from "../models/Skill.js";
 const createUserSkillRelation = async (req, res) => {
     try {
       const UserSkillRelation = await UsersSkills.create(req.body);
@@ -29,13 +29,21 @@ const getAllUserSkillRelations = async (req, res) => {
   const  getSkillsForUserByUserId = async (req, res) => {
     try {
       const{id} = req.params;
-      const skills = await UsersSkills.findAll({
-        where: {
-          user_id: id
-        }
-      })
-      if (skills.length) {
-        res.status(200).send(skills);
+      const skillsIds = await UsersSkills.findAll({
+        attributes: ["skill_id"],
+         where: {user_id: id}   
+      });
+      const skillsNames = await Promise.all(skillsIds.map(async (userSkill) =>{
+        const skillId = userSkill.skill_id;
+        //get skill name for each id..
+        const skillName = await Skill.findByPk( skillId, {
+          attributes: ["name", "description"]
+        }); 
+        return  skillName;
+       }))
+    
+      if (skillsNames.length) {
+        res.status(200).send({skillsNams: skillsNames});
       } else {
         res.status(404).send({
           message: `The user with id=${id} has not add any skills yet.`
@@ -95,10 +103,12 @@ const getAllUserSkillRelations = async (req, res) => {
     }
   };
 
+ 
 export {
     createUserSkillRelation,
     getAllUserSkillRelations,
     getSkillsForUserByUserId,
     getUsersBySkillId,
-    deleteUserSkillRelation
+    deleteUserSkillRelation,
+    
 };

@@ -1,10 +1,10 @@
 import {getUserById, updateUser} from './userController.js'
 import {getAllProjects, getProjectById} from './projectController.js'
-import {getTasksByUserId, getTaskById} from './taskController.js'
+import {getTasksByUserId, getTaskById, getMyProjects} from './taskController.js'
 import {getAllSkills, createSkill} from './skillController.js'
 import {createUserSkillRelation, getSkillsForUserByUserId, deleteUserSkillRelation} from './userSkillController.js'
 import {createTool, getAllTools} from './toolController.js'
-import {createUserToolRelation, updateUserTool, geToolsForUserByUserId, deleteUserToolRelation} from './userToolController.js'
+import {createUserToolRelation, updateUserTool, geToolsForUserByUserId, deleteUserToolRelation, showSharingTools} from './userToolController.js'
 import {getAllEvents, getEventById} from './eventController.js'
 import {createUserEventRelation, getEventsByUserId, deleteUserEventRelation} from './userEventController.js'
 
@@ -28,6 +28,12 @@ const showAllProjects = (req, res) => {
 const showProject = (req, res) => {
   getProjectById(req, res);
 }
+
+// Show my projects
+const showMyProject = (req, res)=>{
+  getMyProjects(req, res);
+}
+
 // Show my tasks
 const showMyTasks = (req, res) => {
    getTasksByUserId(req, res);
@@ -69,6 +75,11 @@ const getTools = (req, res)=> {
   getAllTools(req, res);
 }
 
+// Show sharing tools
+const getSharingTools = (req, res) =>{
+  showSharingTools(req, res);
+}
+
 // Show my tools (from user_tool relation)
 const getMyTools = (req, res)=> {
   geToolsForUserByUserId(req, res);
@@ -103,12 +114,13 @@ const getAllEvent = (req, res) => {
 const ShowEvent = (req, res) => {
   getEventById(req,res);
 }
+
 // Show all event im registered in (user-event relatiom)
 const showMyEvents = (req, res) => {
   getEventsByUserId(req, res)
 }
 
-// Register in specific event (user_event relation)
+// Register in specific event (create user_event relation)
 const registerInEvent = (req, res) => {
   createUserEventRelation(req, res);
 }
@@ -117,6 +129,9 @@ const registerInEvent = (req, res) => {
 const deleteRegister = (req, res) => {
   deleteUserEventRelation(req, res);
 }
+
 export { deleteRegister,registerInEvent, showMyEvents, ShowEvent, getAllEvent, deleteTool, updateTool,
   addNewTool, addTool, getMyTools, getTools, deleteSkill, addNewSkill, addAvailabilSkill, getMySkills, 
-  showAllSkills, showTask, showMyTasks, showProject, showAllProjects, updateMyProfile, getMyProfile  };
+  showAllSkills, showTask, showMyTasks, showProject, showAllProjects, updateMyProfile, getMyProfile , 
+  showMyProject, getSharingTools
+ };

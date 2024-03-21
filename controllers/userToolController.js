@@ -1,5 +1,5 @@
 import UsersTools from "../models/UsersTools.js";
-
+import Tool from "../models/Tool.js";
 const createUserToolRelation = async (req, res) => {
     try {
       const UserToolRelation = await UsersTools.create(req.body);
@@ -14,7 +14,7 @@ const createUserToolRelation = async (req, res) => {
 
 };
 
-const getAllUserToolRelations = async (req, res) => {
+const showSharingTools = async (req, res) => {
     try {
       const UserToolRelations = await UsersTools.findAll();
       res.status(200).send(UserToolRelations);
@@ -29,13 +29,21 @@ const getAllUserToolRelations = async (req, res) => {
   const  geToolsForUserByUserId = async (req, res) => {
     try {
       const{id} = req.params;
-      const Tools = await UsersTools.findAll({
-        where: {
-          user_id: id
-        }
-      })
-      if (Tools.length) {
-        res.status(200).send(Tools);
+      const toolsIds = await UsersTools.findAll({
+       // attributes: ["tool_id"],
+        where: {user_id: id}
+      });
+      const toolsNames = await Promise.all(toolsIds.map(async (userTool) =>{
+        const toolId = userTool.tool_id;
+        //get tool name for each id..
+        const toolName = await Tool.findByPk( toolId, {
+          attributes: ["name"]
+        }); 
+        return  {name: toolName.name, status:userTool.status };
+       }))
+  
+      if (toolsNames.length) {
+        res.status(200).send({toolsNames: toolsNames});
       } else {
         res.status(404).send({
           message: `The user with id=${id} has not add any Tools yet.`
@@ -119,7 +127,7 @@ const getAllUserToolRelations = async (req, res) => {
 
 export {
     createUserToolRelation,
-    getAllUserToolRelations,
+    showSharingTools,
     getUsersByToolId,
     geToolsForUserByUserId,
     updateUserTool,
