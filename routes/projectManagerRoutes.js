@@ -1,8 +1,28 @@
 import express from "express";
 const router = express.Router();
-import {} from "../controllers/projectManagerController.js";
-router.route("/project/:projectID").post();
+import {
+  getProjectsForProjectManager,
+  assignTaskforEmployee,
+  getTasksforProject,
+  updateTaskFromProjectManager,
+  deleteTaskFromProjectManager,
+} from "../controllers/projectManagerController.js";
+
+router.route("/:projectManagerId/projects").get(getProjectsForProjectManager);
+
 router
-  .route("/project/:projectID/task/:taskID/assign-to/employee/:employeeID")
-  .post();
+  .route(
+    "/:projectManagerId/project/:projectID/assign-task-to/employee/:employeeID"
+  )
+  .post(assignTaskforEmployee);
+
+router
+  .route("/:projectManagerId/project/:projectID/tasks")
+  .get(getTasksforProject);
+
+router
+  .route("/:projectManagerId/task/:taskId")
+  .put(updateTaskFromProjectManager)
+  .delete(deleteTaskFromProjectManager);
+
 export default router;
