@@ -9,12 +9,14 @@ import adminRoutes from "./adminRoutes.js";
 import authRouter from "./AuthRouter.js";
 import projectManagerRoutes from "./projectManagerRoutes.js";
 
+
 router.use("/events", eventRoutes);
 router.use("/projects", projectRoutes);
 router.use("/skills", skillRoutes);
-router.use("/employee/:id", employeeRoutes);
+router.use("/employee", employeeRoutes);
 router.use("/admin", adminRoutes);
-router.use("/project-manager/:id", projectManagerRoutes);
+router.use("/project-manager", projectManagerRoutes);
 router.use("/auth", authRouter);
+
 
 export default router;

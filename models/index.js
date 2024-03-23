@@ -1,3 +1,4 @@
+import Sequelize from 'sequelize';
 import sequelize from '../config/sequelize.js';
 import User from './User.js'; 
 import Company from './Company.js';
@@ -19,9 +20,8 @@ Event.belongsToMany(Company, { through: CompaniesEvents });
 User.belongsToMany(Event, { through: UsersEvents });
 Event.belongsToMany(User, { through: UsersEvents });
 
-User.belongsToMany(Skill, { through: UsersSkills });
-Skill.belongsToMany(User, { through: UsersSkills });
-
+Skill.belongsToMany(User, { through: UsersSkills});
+User.belongsToMany(Skill, { through: UsersSkills});
 
 Project.belongsToMany(Tool, {through: ProjectsTools});
 Tool.belongsToMany(Project, {through: ProjectsTools});
@@ -37,4 +37,4 @@ Project.belongsTo(User, { foreignKey: 'project_manager_id', as: 'ProjectManager'
 
 
 
-export { Company, Event, CompaniesEvents, User, UsersEvents, Skill, UsersSkills, Project,Tool, Task, ProjectsTools, UsersTools };
+export { Company, Event, CompaniesEvents, User, UsersEvents, Skill, Project,Tool, Task, ProjectsTools, UsersTools, sequelize};
