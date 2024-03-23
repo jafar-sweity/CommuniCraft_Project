@@ -26,6 +26,8 @@ const authenticate = async (
   }
 }
 
-export {
-  authenticate
+const checkAdminRole = (req, res, next) => {
+  req.cookies['Role'] === 'admin' ? next() : res.status(401).send("You are Unauthorized!");
 }
+
+export { authenticate, checkAdminRole };

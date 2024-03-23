@@ -20,18 +20,18 @@ AuthRouter.post("/signup", async (req, res) => {
   }
 });
 
-AuthRouter.post("/login", async (req, res) => {
-  const response = await login(req.body);
-  if (response.success) {
-    res.cookie("token", response.token, {
-      httpOnly: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
-    res.cookie("Role", response.role, { maxAge: 7 * 24 * 60 * 60 * 1000 });
-    res.status(200).send(response);
-  } else {
-    res.status(400).send(response);
-  }
+
+AuthRouter.post('/login', async (req, res) => { 
+    const response = await login(req.body);
+    if(response.success){
+        res.cookie('token', response.token, { httpOnly: true , maxAge: 7 * 24 * 60 * 60 * 1000});
+        res.cookie('Role', response.role, { maxAge: 7 * 24 * 60 * 60 * 1000});
+        
+        res.status(200).send(response);
+    }
+    else{
+        res.status(400).send(response);
+    }
 });
 
 AuthRouter.post("/logout", async (req, res) => {

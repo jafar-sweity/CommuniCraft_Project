@@ -31,5 +31,5 @@ services:
       - MYSQL_PORT=${MYSQL_PORT}
 
     depends_on:
-      - mysql :
+      mysql :
           condition: service_healthy
