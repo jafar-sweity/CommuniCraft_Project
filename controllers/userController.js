@@ -1,7 +1,36 @@
 import User from '../models/User.js';
+import IsEmail from "isemail";
+
 
 const createUser = async (req, res) => {
   try {
+    if (!req.body.email || !req.body.password) {
+      res.status(400).send({
+        message: 'Content can not be empty!'
+      });
+      return;
+    }
+    // check if user already exists
+    const usercheck  = await User.findOne({ where: { email: req.body.email } });
+    if (usercheck) {
+      res.status(400).send({
+        message: 'User already exists!'
+      });
+    }
+    // check valid email
+    if (!IsEmail.validate(req.body.email)) {
+      res.status(400).send({
+        message: 'Invalid email'
+      });
+    }
+    // check password length
+    if (req.body.password.length < 6) {
+      res.status(400).send({
+        message: 'Password must be at least 6 characters long'
+      });
+    }
+
+    
     const user = await User.create(req.body);
     res.status(201).send(user);
   } catch (error) {
