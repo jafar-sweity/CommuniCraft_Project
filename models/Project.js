@@ -1,40 +1,45 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../config/sequelize.js'; 
+import { DataTypes } from "sequelize";
+import sequelize from "../config/sequelize.js";
 
-const Project = sequelize.define('Project', {
+const Project = sequelize.define(
+  "Project",
+  {
     project_id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     cost: {
-        type: DataTypes.DOUBLE,
-        allowNull: false
+      type: DataTypes.DOUBLE,
+      allowNull: false,
     },
     discout: {
-        type: DataTypes.DOUBLE,
-        allowNull: true
+      type: DataTypes.DOUBLE,
+      allowNull: true,
     },
     status: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    level: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     owner: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     end_date: {
-        type: DataTypes.DATE,
-        allowNull: true
+      type: DataTypes.DATE,
+      allowNull: true,
     },
     project_manager_id: {
         type: DataTypes.INTEGER,
@@ -44,14 +49,11 @@ const Project = sequelize.define('Project', {
             key: 'id'
         } 
     }, 
-    level:{
-        type: DataTypes.STRING  
-    }
+  },
+  {
+    tableName: "projects",
+    // timestamps: false
+  }
+);
 
-}, {  
-    tableName: 'projects',
-   // timestamps: false
-
-})
-
-export default Project
+export default Project;
