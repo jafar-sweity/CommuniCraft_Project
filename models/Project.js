@@ -42,13 +42,13 @@ const Project = sequelize.define(
       allowNull: true,
     },
     project_manager_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "users",
-        key: "id",
-      },
-    },
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'users',
+            key: 'id'
+        } 
+    }, 
   },
   {
     tableName: "projects",

@@ -30,11 +30,11 @@ const getAllUserEventRelations = async (req, res) => {
     try {
       const{id} = req.params;
       const eventsIds = await UsersEvents.findAll({
-        attributes: ["event_id"],
-        where: {user_id: id  }
+        attributes: ["EventId"],
+        where: {UserId: id  }
       });
       const eventsNames = await Promise.all(eventsIds.map(async (eventUser) =>{
-        const eventId = eventUser.event_id;
+        const eventId = eventUser.EventId;
         //get project name for each id..
         const eventName = await Event.findByPk( eventId, {
         //  attributes: ["name"]
@@ -62,7 +62,7 @@ const getAllUserEventRelations = async (req, res) => {
     try {
       const users = await UsersEvents.findAll({
         where: {
-        event_id: id
+        EventId: id
         }
       })
       if (users.length) {

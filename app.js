@@ -21,7 +21,6 @@ import cookieParser from 'cookie-parser';
 import router from './routes/router.js';
 
 
-export const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());

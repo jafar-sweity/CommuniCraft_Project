@@ -30,12 +30,13 @@ const getAllUserSkillRelations = async (req, res) => {
     try {
       const{id} = req.params;
       const skillsIds = await UsersSkills.findAll({
-        attributes: ["skill_id"],
-         where: {user_id: id}   
+        attributes: ["SkillId"],
+         where: {UserId: id}   
       });
       const skillsNames = await Promise.all(skillsIds.map(async (userSkill) =>{
-        const skillId = userSkill.skill_id;
+        const skillId = userSkill.SkillId;
         //get skill name for each id..
+        console.log(skillId+"///////////");
         const skillName = await Skill.findByPk( skillId, {
           attributes: ["name", "description"]
         }); 
@@ -62,7 +63,7 @@ const getAllUserSkillRelations = async (req, res) => {
     try {
       const users = await UsersSkills.findAll({
         where: {
-          skill_id: id
+          SkillId: id
         }
       })
       if (users.length) {

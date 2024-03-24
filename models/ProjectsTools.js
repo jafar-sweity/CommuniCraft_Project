@@ -11,22 +11,22 @@ const ProjectsTools = sequelize.define('ProjectsTools', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    project_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'projects',
-            key: 'project_id'
-        } 
-    },
-    tool_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'tools',
-            key: 'tool_id'
-        } 
-    },
+    // project_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'projects',
+    //         key: 'project_id'
+    //     } 
+    // },
+    // tool_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'tools',
+    //         key: 'tool_id'
+    //     } 
+    // },
 
 }, {  
     tableName: 'projects_Tools',

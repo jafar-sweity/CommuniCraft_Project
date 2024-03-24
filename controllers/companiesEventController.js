@@ -31,7 +31,7 @@ const  getEventsByCompanyId = async (req, res) => {
     const{id} = req.params;
     const events = await CompaniesEvents.findAll({
       where: {
-        company_id: id
+        CompanyId: id
       }
     })
     if (events.length) {
@@ -54,7 +54,7 @@ const  getCompniesByEventId = async (req, res) => {
   try {
     const company = await CompaniesEvents.findAll({
       where: {
-      event_id: id
+      EventId: id
       }
     })
     if (company.length) {

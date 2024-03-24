@@ -7,20 +7,20 @@ const UsersEvents = sequelize.define('UsersEvents', {
     autoIncrement: true,
     primaryKey: true,
   },
-  event_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'events', 
-      key: 'id',
-    },
-  },
-  user_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'users',
-      key: 'id',
-    },
-  },
+  // event_id: {
+  //   type: DataTypes.INTEGER,
+  //   references: {
+  //     model: 'events', 
+  //     key: 'id',
+  //   },
+  // },
+  // user_id: {
+  //   type: DataTypes.INTEGER,
+  //   references: {
+  //     model: 'users',
+  //     key: 'id',
+  //   },
+  // },
 }, {
   tableName: 'users_events',
 });
