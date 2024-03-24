@@ -11,22 +11,22 @@ const UsersTools = sequelize.define('UsersTools', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'users',
-            key: 'id'
-        } 
-    },
-    tool_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'tools',
-            key: 'tool_id'
-        } 
-    },
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'users',
+    //         key: 'id'
+    //     } 
+    // },
+    // tool_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'tools',
+    //         key: 'tool_id'
+    //     } 
+    // },
     end_date: {
         type: DataTypes.DATE,
         allowNull: true

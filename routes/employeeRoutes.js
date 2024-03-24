@@ -1,23 +1,38 @@
 import express from "express";
 const router = express.Router();
-import { profile } from "../controllers/employeeController.js";
+import * as employeeController from "../controllers/employeeController.js";
+import {authenticate} from '../middleware/validtion.js';
 
-router.route("/").get(profile);
-router.get;
-router.route("/tasks").get();
-router.route("/task/:taskID").put();
+// Profile
+router.route("/:id/profile").get(authenticate, employeeController.getMyProfile).put(authenticate, employeeController.updateMyProfile);
 
-router.route("/tools").get().post();
-// this toolsID is the id in the tools table not in the user-tools table
-// the user see the tools in the table then select an id from them and insert
-//it in the user-tools table
-// but if the tool he needed is not in the tools table he can
-//add it there before using the previous request
-router.route("/tool/:toolID").put().delete();
+// Project
+router.route("/projects").get(authenticate, employeeController.showAllProjects);
+router.route("/project/:project_id").get(authenticate, employeeController.showProject);
+router.route("/:userId/myProjects").get(authenticate, employeeController.showMyProject) ////
 
-//same as tools
-router.route("/skills").post().get();
-router.route("/skill/:skillID").post().delete();
+// Task
+router.route("/:userId/myTasks").get(authenticate, employeeController.showMyTasks) ////
+router.route("/task/:taskId").get(authenticate, employeeController.showTask)    ////
 
-router.route("/event/:eventID").post();
+// Skill
+router.route("/skills").get(authenticate, employeeController.showAllSkills).post(authenticate, employeeController.addNewSkill) 
+router.route("/:id/mySkills").get(authenticate, employeeController.getMySkills) 
+router.route("/mySkill").post(authenticate, employeeController.addAvailabilSkill) 
+router.route("/skill/:id").delete(authenticate, employeeController.deleteSkill)
+
+// Tool
+router.route("/tools").get(authenticate, employeeController.getTools).post(authenticate, employeeController.addNewTool)
+router.route("/sharingTools").get(authenticate, employeeController.getSharingTools);
+router.route("/:id/myTools").get(authenticate, employeeController.getMyTools)
+router.route("/myTool").post(authenticate, employeeController.addTool)
+router.route("/tool/:id").delete(authenticate, employeeController.deleteTool).put(authenticate, employeeController.updateTool)
+
+// Event
+router.route("/events").get(authenticate, employeeController.getAllEvent)
+router.route("/event/:id").get(authenticate, employeeController.ShowEvent)
+router.route("/:id/myEvents").get(authenticate, employeeController.showMyEvents) 
+router.route("/register/event").post(authenticate, employeeController.registerInEvent)
+router.route("/register/event/:id").delete(authenticate, employeeController.deleteRegister)
+
 export default router;
