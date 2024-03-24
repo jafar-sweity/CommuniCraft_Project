@@ -43,6 +43,9 @@ const Project = sequelize.define('Project', {
             model: 'users',
             key: 'id'
         } 
+    }, 
+    level:{
+        type: DataTypes.STRING  
     }
 
 }, {  

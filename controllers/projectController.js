@@ -14,7 +14,11 @@ const createProject = async (req, res) => {
 
 const getAllProjects = async (req, res) => {
   try {
-    const projects = await Project.findAll();
+    const projects = await Project.findAll({
+      order: [
+        ['level', 'DESC']  // Sort by 'level' in descending order (beginning .. advance)
+      ]
+    });
     res.status(200).send(projects);
   } catch (error) {
     res.status(500).send({

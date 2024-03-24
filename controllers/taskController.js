@@ -52,7 +52,7 @@ const getAllTasks = async (req, res) => {
       const{userId} = req.params;
       const tasks = await Task.findAll({
         where: {
-            user_id: userId
+            UserId: userId
         }
       })
       if (tasks.length) {
@@ -74,11 +74,11 @@ const getAllTasks = async (req, res) => {
     try {
       const{userId} = req.params;
       const projectsIds = await Task.findAll({
-        attributes: ["project_id"],
-          where: { user_id: userId}
+        attributes: ["ProjectProjectId"],
+          where: { UserId: userId}
       });
      const projectsNames = await Promise.all(projectsIds.map(async (task) =>{
-      const projectId = task.project_id;
+      const projectId = task.ProjectProjectId;
       //get project name for each id..
       const projectName = await Project.findByPk( projectId, {
         attributes: ["name"]
@@ -106,7 +106,7 @@ const getAllTasks = async (req, res) => {
       const{ projectId } = req.params;
       const tasks = await Task.findAll({
         where: {
-            project_id: projectId
+            projectId: projectId
         }
       })
       if (tasks.length) {

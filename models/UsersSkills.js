@@ -7,21 +7,21 @@ const UsersSkills = sequelize.define('UsersSkills', {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true
-  },
-  user_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'users', 
-      key: 'id'
-    }
-  },
-  skill_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'skills', 
-      key: 'id'
-    }
   }
+  // user_id: {
+  //   type: DataTypes.INTEGER,
+  //   references: {
+  //     model: 'users', 
+  //     key: 'id'
+  //   }
+  // },
+  // skill_id: {
+  //   type: DataTypes.INTEGER,
+  //   references: {
+  //     model: 'skills', 
+  //     key: 'id'
+  //   }
+  // }
 }, {
   tableName: 'users_skills'
 });

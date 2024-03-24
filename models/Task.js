@@ -19,21 +19,21 @@ const Task = sequelize.define('Task', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    project_id: {
-        type: DataTypes.INTEGER,
+    // project_id: {
+    //     type: DataTypes.INTEGER,
        
-        references: {
-            model: 'projects',
-            key: 'project_id'
-        } 
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'users',
-          key: 'id',
-        },
-      },
+    //     references: {
+    //         model: 'projects',
+    //         key: 'project_id'
+    //     } 
+    // },
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'users',
+    //       key: 'id',
+    //     },
+    //   },
 
 }, {  
     tableName: 'tasks',

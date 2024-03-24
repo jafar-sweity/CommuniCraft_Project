@@ -31,7 +31,7 @@ const getAllProjectToolRelations = async (req, res) => {
         const{id} = req.params;
         const projects = await ProjectsTools.findAll({
           where: {
-            tool_id: id
+            ToolId: id
           }
         })
         if (projects.length) {
@@ -54,7 +54,7 @@ const getAllProjectToolRelations = async (req, res) => {
       try {
         const tools = await ProjectsTools.findAll({
           where: {
-          project_id: id
+          ProjectId: id
           }
         })
         if (tools.length) {
