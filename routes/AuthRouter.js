@@ -4,6 +4,7 @@ import {
   login,
   forgotPassword,
 } from "../controllers/authControllers.js";
+import logger from "../logger.js";
 const AuthRouter = express.Router();
 AuthRouter.post("/signup", async (req, res) => {
   const userData = req.body;
@@ -15,8 +16,10 @@ AuthRouter.post("/signup", async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(201).send(response);
+    logger.info(response)
   } else {
     res.status(400).send(response);
+    logger.error(response)
   }
 });
 
@@ -28,9 +31,11 @@ AuthRouter.post('/login', async (req, res) => {
         res.cookie('Role', response.role, { maxAge: 7 * 24 * 60 * 60 * 1000});
         
         res.status(200).send(response);
+        logger.info(response)
     }
     else{
         res.status(400).send(response);
+        logger.info(response)
     }
 });
 
@@ -38,6 +43,7 @@ AuthRouter.post("/logout", async (req, res) => {
   res.clearCookie("token");
   console.log(req.cookies["token"]);
   res.status(201).send("Logged out successfully");
+  logger.info("Logged out successfully")
 });
 AuthRouter.post("/forgot-password", forgotPassword);
 

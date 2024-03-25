@@ -5,6 +5,7 @@ import {
   getTasksByProjectId,
   updateTask,
 } from "./taskController.js";
+import logger from "../logger.js";
 
 const getProjectsForProjectManager = async (req, res) => {
   try {
@@ -12,11 +13,13 @@ const getProjectsForProjectManager = async (req, res) => {
       where: { project_manager_id: req.params.projectManagerId },
     });
     res.status(200).send(projects);
+    logger.info(`Get Projects for project manager with id=${req.params.projectManagerId}. success`)
   } catch (error) {
     res.status(500).send({
       message:
         error.message || "Some error occurred while retrieving projects.",
     });
+    logger.error(error.message || "Some error occurred while retrieving projects.")
   }
 };
 
@@ -41,15 +44,18 @@ const updateTaskFromProjectManager = async (req, res) => {
       res.send({
         message: "Task was updated successfully.",
       });
+      logger.info(`Task with id=${req.params.taskId} was updated successfully.`)
     } else {
       res.send({
         message: `Cannot update task with id=${req.params.taskId}.`,
       });
+      logger.info(`Cannot update task with id=${req.params.taskId}.`)
     }
   } catch (error) {
     res.status(500).send({
       message: "Error updating task with id=" + req.params.taskId,
     });
+    logger.error("Error updating task with id=" + req.params.taskId)
   }
 };
 const deleteTaskFromProjectManager = async (req, res) => {
@@ -64,15 +70,18 @@ const deleteTaskFromProjectManager = async (req, res) => {
       res.send({
         message: "Task was deleted successfully!",
       });
+      logger.info(`Task with id=${req.params.taskId} was deleted successfully!`)
     } else {
       res.send({
         message: `Cannot delete Task with id=${req.params.taskId}. Maybe Task was not found!`,
       });
+      logger.info(`Cannot delete Task with id=${req.params.taskId}. Maybe Task was not found!`)
     }
   } catch (error) {
     res.status(500).send({
       message: "Could not delete Task with id=" + req.params.taskId,
     });
+    logger.error("Could not delete Task with id=" + req.params.taskId)
   }
 };
 export {

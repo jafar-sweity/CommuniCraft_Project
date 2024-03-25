@@ -1,6 +1,4 @@
 import User from '../models/User.js';
-import IsEmail from "isemail";
-
 
 const createUser = async (req, res) => {
   try {
@@ -33,10 +31,12 @@ const createUser = async (req, res) => {
     
     const user = await User.create(req.body);
     res.status(201).send(user);
+    logger.info(`Create User successfully`)
   } catch (error) {
     res.status(500).send({
       message: error.message || 'Some error occurred while creating the User.'
     });
+    logger.error(error.message || 'Some error occurred while creating the User.')
   }
 };
 
@@ -44,10 +44,12 @@ const getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll();
     res.status(200).send(users);
+    logger.info(`Get All Users successfully`)
   } catch (error) {
     res.status(500).send({
       message: error.message || 'Some error occurred while retrieving users.'
     });
+    logger.error(error.message || 'Some error occurred while retrieving users.')
   }
 };
 
@@ -56,15 +58,18 @@ const getUserById = async (req, res) => {
     const user = await User.findByPk(req.params.id);
     if (user) {
       res.status(200).send(user);
+      logger.info(`Get User with id ${req.params.id} successfully`)
     } else {
       res.status(404).send({
         message: `Cannot find User with id=${req.params.id}.`
       });
+      logger.info(`Cannot find User with id=${req.params.id}.`)
     }
   } catch (error) {
     res.status(500).send({
       message: error.message || 'Error retrieving User with id=' + req.params.id
     });
+    logger.error(error.message || 'Error retrieving User with id=' + req.params.id)
   }
 };
 
@@ -77,15 +82,18 @@ const updateUser = async (req, res) => {
       res.send({
         message: 'User was updated successfully.'
       });
+      logger.info(`User with id ${req.params.id} was updated successfully.`)
     } else {
       res.send({
         message: `Cannot update User with id=${req.params.id}. Maybe User was not found or req.body is empty!`
       });
+      logger.info(`Cannot update User with id=${req.params.id}. Maybe User was not found or req.body is empty!`)
     }
   } catch (error) {
     res.status(500).send({
       message: 'Error updating User with id=' + req.params.id
     });
+    logger.error('Error updating User with id=' + req.params.id)
   }
 };
 
@@ -98,15 +106,18 @@ const deleteUser = async (req, res) => {
       res.send({
         message: 'User was deleted successfully!'
       });
+      logger.info(`User with id ${req.params.id} was deleted successfully!`)
     } else {
       res.send({
         message: `Cannot delete User with id=${req.params.id}. Maybe User was not found!`
       });
+      logger.info(`Cannot delete User with id=${req.params.id}. Maybe User was not found!`)
     }
   } catch (error) {
     res.status(500).send({
       message: 'Could not delete User with id=' + req.params.id
     });
+    logger.error('Could not delete User with id=' + req.params.id)
   }
 };
 
