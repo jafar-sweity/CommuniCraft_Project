@@ -23,7 +23,7 @@ router.use("/skills", authenticate,skillRoutes);
 router.use("/employee", authenticate,employeeRoutes);
 router.use("/admin", authenticate,checkAdminRole,adminRoutes);
 router.use("/project-manager", authenticate,checkprojectManagerRole,projectManagerRoutes);
-router.use("/auth", authenticate,authRouter);
+router.use("/auth",authRouter);
 
 
 export default router;
