@@ -1,4 +1,6 @@
 import User from '../models/User.js';
+import IsEmail from 'isemail';
+import logger from '../logger.js';
 
 const createUser = async (req, res) => {
   try {

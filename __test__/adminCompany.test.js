@@ -123,7 +123,7 @@ describe('Admin Routes - Events', () => {
   });
 
   it('should get a specific event by ID successfully', async () => {
-    const eventId = 'valid_event_id';
+    const eventId = '1';
 
     const response = await supertest(app)
       .get(`/admin/events/${eventId}`);
