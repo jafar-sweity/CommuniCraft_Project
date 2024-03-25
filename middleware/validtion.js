@@ -30,4 +30,7 @@ const checkAdminRole = (req, res, next) => {
   req.cookies['Role'] === 'admin' ? next() : res.status(401).send("You are Unauthorized!");
 }
 
-export { authenticate, checkAdminRole };
+const checkprojectManagerRole = (req, res, next) => {
+  req.cookies['Role'] === 'projectManager' ? next() : res.status(401).send("You are Unauthorized!");
+}
+export { authenticate, checkAdminRole , checkprojectManagerRole};
