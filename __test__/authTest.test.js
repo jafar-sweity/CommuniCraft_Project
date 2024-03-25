@@ -18,7 +18,6 @@ describe('Authentication Routes', () => {
       salary: 10000
     };
 
-    // Send a POST request to /auth/signup/
     const response = await supertest(app)
       .post('/auth/signup')
       .send(userData);
