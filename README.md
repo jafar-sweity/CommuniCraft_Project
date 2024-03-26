@@ -47,13 +47,13 @@ artisans, promoting local businesses and knowledge sharing.
 
 ## API Documentation
 
-The API is fully documented using Postman. Access the documentation [here](https://documenter.getpostman.com/view/29528140/2s9YkuZyR9).
+The API is fully documented using Postman. Access the documentation <!-- [here](link).-->
 
 ## Getting Started
 
 To get started with EcoTrack API, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/AdvancedSoftwareTeam/EcoTrack.git` 
+1. Clone the repository: `git clonehttps://github.com/jafar-sweity/CommuniCraft_Project` 
 2. Install dependencies: `npm install`
 3. Configure environment variables.
 4. Setup the database using mysql ( sql code is inside database folder ).
@@ -61,4 +61,4 @@ To get started with EcoTrack API, follow these steps:
 
 #### Demo 
 
-click on the following link to watch the testing [demo video](https://drive.google.com/file/d/1IhVZ-JUvbNWw50SRC-YMC2zegsws5C2s/view?usp=sharing).
+click on the following link to watch the demo video [demo video]<!--(link).-->
