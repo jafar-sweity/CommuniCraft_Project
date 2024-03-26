@@ -47,7 +47,7 @@ artisans, promoting local businesses and knowledge sharing.
 
 ## API Documentation
 
-The API is fully documented using Postman. Access the documentation [here]([link](https://documenter.getpostman.com/view/24747664/2sA35D4Nsw)).
+The API is fully documented using Postman. Access the documentation [here] ([link](https://documenter.getpostman.com/view/24747664/2sA35D4Nsw)).
 
 ## Getting Started
 
