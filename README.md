@@ -31,7 +31,7 @@ artisans, promoting local businesses and knowledge sharing.
 
 ### Additional Features:
 
-- **Caht System:** bidirectional communication between employees and project managers empowers seamless collaboration. Employees have access to dedicated groups within each project they're involved in, fostering efficient teamwork and streamlined project management.
+- **Chat System:** bidirectional communication between employees and project managers empowers seamless collaboration. Employees have access to dedicated groups within each project they're involved in, fostering efficient teamwork and streamlined project management.
 - **External API Integration:** Utilized to enhance functionality and supplement data collection.
 - **Testing:** Guaranteeing a robust and stable platform for crafting project management.
 - **Docker:** Simplifies software deployment by packaging applications into portable containers, .
