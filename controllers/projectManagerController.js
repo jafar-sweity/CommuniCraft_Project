@@ -12,8 +12,16 @@ const getProjectsForProjectManager = async (req, res) => {
     const projects = await Project.findAll({
       where: { project_manager_id: req.params.projectManagerId },
     });
-    res.status(200).send(projects);
-    logger.info(`Get Projects for project manager with id=${req.params.projectManagerId}. success`)
+    if (projects.length)
+    {
+      res.status(200).send(projects);
+      logger.info(`Get Projects for project manager with id=${req.params.projectManagerId}. success`)
+    }
+    else{
+      res.status(200).send({Message:`No project for project Manager with id ${req.params.projectManagerId}`});
+      logger.info({Message:`No project for project Manager with id ${req.params.projectManagerId}`})
+    }
+
   } catch (error) {
     res.status(500).send({
       message:
@@ -37,10 +45,10 @@ const updateTaskFromProjectManager = async (req, res) => {
     const num = await Task.update(req.body, {
       where: {
         task_id: req.params.taskId,
-        project_manager_id: req.params.projectManagerId,
       },
     });
-    if (num) {
+    console.log(num);
+    if (num == 1) {
       res.send({
         message: "Task was updated successfully.",
       });
@@ -63,10 +71,9 @@ const deleteTaskFromProjectManager = async (req, res) => {
     const num = await Task.destroy({
       where: {
         task_id: req.params.taskId,
-        project_manager_id: req.params.projectManagerId,
       },
     });
-    if (num) {
+    if (num==1) {
       res.send({
         message: "Task was deleted successfully!",
       });
