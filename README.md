@@ -43,8 +43,6 @@ artisans, promoting local businesses and knowledge sharing.
 - **MySQL:** Database.
 - **Postman:** API building and documentation tool.
 - **Git:** Version control system.
-- **Socket.IO:** for real-time alerts .
-
 
 ## API Documentation
 
