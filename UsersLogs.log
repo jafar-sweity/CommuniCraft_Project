@@ -4,7 +4,3 @@
 {"level":"info","message":"Get All projects success","timestamp":"2024-03-24T23:28:03.388Z"}
 {"level":"info","message":"Get All projects success","timestamp":"2024-03-24T23:28:28.836Z"}
 {"level":"info","message":"Get all events success","timestamp":"2024-03-25T01:17:08.934Z"}
-{"level":"info","message":"User shahd test created successfully","success":true,"timestamp":"2024-03-25T12:40:41.922Z","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbmUuc21pdGhAZXhhbXBsZS5jb20iLCJpYXQiOjE3MTEzNzA0NDEsImV4cCI6MTcxMTk3NTI0MX0.ZTEaKHe1Z8LBKOg6EpSi8ZnYAQyVSzEJx36qBnAqnX8"}
-{"level":"info","message":"User shahd test logged in successfully","role":"admin","success":true,"timestamp":"2024-03-25T12:41:03.310Z","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiamFuZS5zbWl0aEBleGFtcGxlLmNvbSIsImlhdCI6MTcxMTM3MDQ2MywiZXhwIjoxNzExOTc1MjYzfQ.rxQGFR2Gf60Yqxer6MaCNSpL6nnZfuFsBnBrJMzVKMk"}
-{"level":"info","message":"User shahd test logged in successfully","role":"admin","success":true,"timestamp":"2024-03-25T12:47:05.568Z","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiamFuZS5zbWl0aEBleGFtcGxlLmNvbSIsImlhdCI6MTcxMTM3MDgyNSwiZXhwIjoxNzExOTc1NjI1fQ.eRjYwje3d-BPb5GFXXgItdPJinAHffnFai1iQokvVCo"}
-{"level":"info","message":"Get all company successfully","timestamp":"2024-03-25T12:48:39.794Z"}
