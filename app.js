@@ -15,11 +15,13 @@ initialaizeChatSystem(app);
 
 // app.js
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 30030;
 app.use(express.json());
 app.use(cookieParser());
 app.use(router);
-
+app.get('/test', (req, res) => {
+  res.send('Server is working');
+});
 sequelize
   .sync()
   .then(() => {
