@@ -1,10 +1,11 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
+- [Features](#main-features)
 - [Technologies Used](#technologies-used)
 - [API Documentation](#api-documentation)
 - [Getting Started](#getting-started)
+  - [Using Docker](#using-docker)
 
 
 ## Introduction
@@ -39,10 +40,15 @@ artisans, promoting local businesses and knowledge sharing.
 ## Technologies Used
 
 - **Node.js:** Backend development platform.
+- **Docker:** Containerization platform for seamless deployment.
 - **Socket.IO:** Real-time communication.
 - **MySQL:** Database.
+- **Sequelize:** Promise-based Node.js ORM for database management.
 - **Postman:** API building and documentation tool.
 - **Git:** Version control system.
+- **Jest:** JavaScript testing framework.
+- **Superset:** Tool for data exploration and visualization.
+  
 
 ## API Documentation
 
@@ -57,6 +63,14 @@ To get started with EcoTrack API, follow these steps:
 3. Configure environment variables.
 4. Setup the database using mysql ( sql code is inside database folder ).
 5. Run the application: `npm start`
+
+### Using Docker
+
+If you prefer running the application with Docker, follow these steps:
+
+1. Install Docker: [Docker Installation Guide](https://docs.docker.com/get-docker/)
+2. Build the Docker containers: `docker-compose build`
+3. Run the Docker containers: `docker-compose up`
 
 #### Demo 
 
