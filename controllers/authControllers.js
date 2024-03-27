@@ -82,6 +82,13 @@ export const login = async (userData) => {
       expiresIn: 7 * 24 * 60 * 60 // 1 week
     });
 
+    // make status active
+    console.log('user before', user );
+    user.status = 'active';
+    console.log('user after', user );
+    await user.save();
+
+
    
 
     return { token, success: true, role: user.role, message: `User ${user.name} logged in successfully`};

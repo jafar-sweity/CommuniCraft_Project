@@ -39,7 +39,7 @@ describe('Admin Routes - Skills', () => {
 
   it('should get a specific skill by ID successfully', async () => {
     const skillId = '1';
-
+    
     const response = await supertest(app)
       .get(`/admin/skills/${skillId}`);
 

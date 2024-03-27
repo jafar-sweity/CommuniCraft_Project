@@ -5,6 +5,7 @@ import {
   forgotPassword,
 } from "../controllers/authControllers.js";
 import logger from "../logger.js";
+import User from "../models/User.js";
 const AuthRouter = express.Router();
 AuthRouter.post("/signup", async (req, res) => {
   const userData = req.body;
@@ -40,6 +41,12 @@ AuthRouter.post('/login', async (req, res) => {
 });
 
 AuthRouter.post("/logout", async (req, res) => {
+  // make user status inactive from the database
+  const email = req.body.email;
+  const user = await User.findOne({ where: { email } });
+  user.status = "inactive";
+  await user.save();
+
   res.clearCookie("token");
   console.log(req.cookies["token"]);
   res.status(201).send("Logged out successfully");
