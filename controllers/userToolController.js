@@ -39,7 +39,7 @@ const showSharingTools = async (req, res) => {
         where: {UserId: id}
       });
       const toolsNames = await Promise.all(toolsIds.map(async (userTool) =>{
-        const toolId = userTool.ToolId;
+        const toolId = userTool.ToolToolId;
         //get tool name for each id..
         const toolName = await Tool.findByPk( toolId, {
           attributes: ["name"]
@@ -70,7 +70,7 @@ const showSharingTools = async (req, res) => {
     try {
       const users = await UsersTools.findAll({
         where: {
-        ToolId: id
+          ToolToolId: id
         }
       })
       if (users.length) {
@@ -94,7 +94,7 @@ const showSharingTools = async (req, res) => {
     const{id} = req.params;
     try {
       const num = await UsersTools.update(req.body, {
-        where: { ToolId: id }
+        where: { ToolToolId: id }
       });
       if (num == 1) {
         res.send({

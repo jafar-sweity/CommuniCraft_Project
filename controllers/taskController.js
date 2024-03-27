@@ -4,7 +4,10 @@ import logger from "../logger.js";
 
 const createTask = async (req, res) => {
     try {
-      const task = await Task.create(req.body);
+      const taskData=req.body
+      taskData.UserId=req.params.employeeID
+      taskData.ProjectProjectId=req.params.projectID
+      const task = await Task.create(taskData);
       res.status(201).send(task);
       logger.info(`Create Task successfully`)
 
@@ -113,26 +116,26 @@ const getAllTasks = async (req, res) => {
    //Get Tasks for specific Project.
    const  getTasksByProjectId = async (req, res) => {
     try {
-      const{ projectId } = req.params;
+      const{ projectID } = req.params;
       const tasks = await Task.findAll({
         where: {
-            projectId: projectId
+          ProjectProjectId: projectID
         }
       })
       if (tasks.length) {
         res.status(200).send(tasks);
-        logger.info(`Get Tasks for Project with id ${projectId} successfully`)
+        logger.info(`Get Tasks for Project with id ${projectID} successfully`)
       } else {
         res.status(404).send({
-          message: `The project with id=${projectId} has not been divided into several tasks yet.`
+          message: `The project with id=${projectID} has not been divided into several tasks yet.`
         });
-        logger.info(`The project with id=${projectId} has not been divided into several tasks yet.`)
+        logger.info(`The project with id=${projectID} has not been divided into several tasks yet.`)
       }
     } catch (error) {
       res.status(500).send({
-        message: error.message || `Error retrieving Tasks for project with id=`+ req.params.projectId
+        message: error.message || `Error retrieving Tasks for project with id=`+ req.params.projectID
       });
-      logger.error(error.message || `Error retrieving Tasks for project with id=`+ req.params.projectId)
+      logger.error(error.message || `Error retrieving Tasks for project with id=`+ req.params.projectID)
     }
   };
 
