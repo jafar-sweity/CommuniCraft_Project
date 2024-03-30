@@ -5,18 +5,29 @@ import {
   getTasksByProjectId,
   updateTask,
 } from "./taskController.js";
+import logger from "../logger.js";
 
 const getProjectsForProjectManager = async (req, res) => {
   try {
     const projects = await Project.findAll({
       where: { project_manager_id: req.params.projectManagerId },
     });
-    res.status(200).send(projects);
+    if (projects.length)
+    {
+      res.status(200).send(projects);
+      logger.info(`Get Projects for project manager with id=${req.params.projectManagerId}. success`)
+    }
+    else{
+      res.status(200).send({Message:`No project for project Manager with id ${req.params.projectManagerId}`});
+      logger.info({Message:`No project for project Manager with id ${req.params.projectManagerId}`})
+    }
+
   } catch (error) {
     res.status(500).send({
       message:
         error.message || "Some error occurred while retrieving projects.",
     });
+    logger.error(error.message || "Some error occurred while retrieving projects.")
   }
 };
 
@@ -34,22 +45,25 @@ const updateTaskFromProjectManager = async (req, res) => {
     const num = await Task.update(req.body, {
       where: {
         task_id: req.params.taskId,
-        project_manager_id: req.params.projectManagerId,
       },
     });
-    if (num) {
+    console.log(num);
+    if (num == 1) {
       res.send({
         message: "Task was updated successfully.",
       });
+      logger.info(`Task with id=${req.params.taskId} was updated successfully.`)
     } else {
       res.send({
         message: `Cannot update task with id=${req.params.taskId}.`,
       });
+      logger.info(`Cannot update task with id=${req.params.taskId}.`)
     }
   } catch (error) {
     res.status(500).send({
       message: "Error updating task with id=" + req.params.taskId,
     });
+    logger.error("Error updating task with id=" + req.params.taskId)
   }
 };
 const deleteTaskFromProjectManager = async (req, res) => {
@@ -57,22 +71,24 @@ const deleteTaskFromProjectManager = async (req, res) => {
     const num = await Task.destroy({
       where: {
         task_id: req.params.taskId,
-        project_manager_id: req.params.projectManagerId,
       },
     });
-    if (num) {
+    if (num==1) {
       res.send({
         message: "Task was deleted successfully!",
       });
+      logger.info(`Task with id=${req.params.taskId} was deleted successfully!`)
     } else {
       res.send({
         message: `Cannot delete Task with id=${req.params.taskId}. Maybe Task was not found!`,
       });
+      logger.info(`Cannot delete Task with id=${req.params.taskId}. Maybe Task was not found!`)
     }
   } catch (error) {
     res.status(500).send({
       message: "Could not delete Task with id=" + req.params.taskId,
     });
+    logger.error("Could not delete Task with id=" + req.params.taskId)
   }
 };
 export {

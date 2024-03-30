@@ -1,3 +1,5 @@
 node_modules
 .envnodemon
 .env
+UserLogs.log
+ErrorsLogs.log
