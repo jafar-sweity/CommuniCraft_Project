@@ -45,4 +45,40 @@ adminRoutes.get('/users/:id', AdminController.adminGetUserById);
 adminRoutes.put('/users/:id', AdminController.adminUpdateUser);
 adminRoutes.delete('/users/:id', AdminController.adminDeleteUser);
 
+// CompaniesEvents routes
+adminRoutes.post('/company-event-relations', AdminController.adminCreateCompanyEventRelation);
+adminRoutes.get('/company-event-relations', AdminController.adminGetAllCompanyEventRelations);
+adminRoutes.get('/company-event-relations/events/:id', AdminController.adminGetEventsByCompanyId);
+adminRoutes.get('/company-event-relations/companies/:id', AdminController.adminGetCompaniesByEventId);
+adminRoutes.delete('/company-event-relations/:id', AdminController.adminDeleteCompanyEventRelation);
+
+// Project-Tool Relation routes
+adminRoutes.post('/project-tool-relations', AdminController.adminCreateProjectToolRelation);
+adminRoutes.get('/project-tool-relations', AdminController.adminGetAllProjectToolRelations);
+adminRoutes.get('/project-tool-relations/projects/:id', AdminController.adminGetProjectsByToolId);
+adminRoutes.get('/project-tool-relations/tools/:id', AdminController.adminGetToolsByProjectId);
+adminRoutes.delete('/project-tool-relations/:id', AdminController.adminDeleteProjectToolRelation);
+
+// User-Event Relation routes
+adminRoutes.post('/user-event-relations', AdminController.adminCreateUserEventRelation);
+adminRoutes.get('/user-event-relations', AdminController.adminGetAllUserEventRelations);
+adminRoutes.get('/user-event-relations/users/:id', AdminController.adminGetEventsByUserId);
+adminRoutes.get('/user-event-relations/events/:id', AdminController.adminGetUsersByEventId);
+adminRoutes.delete('/user-event-relations/:id', AdminController.adminDeleteUserEventRelation);
+
+// User-Skill Relation routes
+adminRoutes.post('/user-skill-relations', AdminController.adminCreateUserSkillRelation);
+adminRoutes.get('/user-skill-relations', AdminController.adminGetAllUserSkillRelations);
+adminRoutes.get('/user-skill-relations/users/:id', AdminController.adminGetSkillsForUserByUserId);
+adminRoutes.get('/user-skill-relations/skills/:id', AdminController.adminGetUsersBySkillId);
+adminRoutes.delete('/user-skill-relations/:id', AdminController.adminDeleteUserSkillRelation);
+
+// User-Tool Relation routes
+adminRoutes.post('/user-tool-relations', AdminController.adminCreateUserToolRelation);
+adminRoutes.get('/user-tool-relations', AdminController.adminShowSharingTools);
+adminRoutes.get('/user-tool-relations/users/:id', AdminController.adminGetToolsForUserByUserId);
+adminRoutes.get('/user-tool-relations/tools/:id', AdminController.adminGetUsersByToolId);
+adminRoutes.put('/user-tool-relations/:id', AdminController.adminUpdateUserTool);
+adminRoutes.delete('/user-tool-relations/:id', AdminController.adminDeleteUserToolRelation);
+
 export default adminRoutes;
