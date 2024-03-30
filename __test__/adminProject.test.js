@@ -2,6 +2,11 @@ import supertest from 'supertest';
 import { app } from '../app.js';
 
 describe('Admin Routes - Projects', () => {
+  afterAll(async () => {
+    // remove all projects that were created during the tests
+    // await Project.destroy({ where: {} });
+  });
+  
   it('should create a new project successfully', async () => {
     const projectData = {
       name: 'Test Project',

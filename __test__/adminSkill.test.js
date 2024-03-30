@@ -1,6 +1,11 @@
 import supertest from 'supertest';
 import { app } from '../app.js';
 describe('Admin Routes - Skills', () => {
+  afterAll(async () => {
+    // remove all skills that were created during the tests
+    // await Skill.destroy({ where: {} });
+  });
+  
   it('should create a new skill successfully', async () => {
     const skillData = {
       name: 'Test Skill',

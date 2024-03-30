@@ -1,6 +1,11 @@
 import supertest from 'supertest';
 import { app } from '../app.js';
 describe('Admin Routes - Events', () => {
+  afterAll(async () => {
+    // remove all events that were created during the tests
+    // await Event.destroy({ where: {} });
+  });
+  
   it('should create a new event successfully', async () => {
     const eventData = {
       name: 'Test Event',

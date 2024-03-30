@@ -3,6 +3,11 @@ import { app } from '../app.js';
 
 
 describe('Admin Routes - Tools', () => {
+  afterAll(async () => {
+    // remove all tools that were created during the tests
+    // await Tool.destroy({ where: {} });
+  });
+  
   it('should create a new tool successfully', async () => {
     const toolData = {
       name: 'Test Tool',
