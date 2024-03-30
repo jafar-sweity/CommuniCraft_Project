@@ -35,7 +35,7 @@ AuthRouter.post('/login', async (req, res) => {
     }
     else{
         res.status(400).send(response);
-        logger.info(response)
+        logger.error(response)
     }
 });
 
