@@ -8,3 +8,147 @@
 {"level":"info","message":"User shahd test logged in successfully","role":"admin","success":true,"timestamp":"2024-03-25T12:41:03.310Z","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiamFuZS5zbWl0aEBleGFtcGxlLmNvbSIsImlhdCI6MTcxMTM3MDQ2MywiZXhwIjoxNzExOTc1MjYzfQ.rxQGFR2Gf60Yqxer6MaCNSpL6nnZfuFsBnBrJMzVKMk"}
 {"level":"info","message":"User shahd test logged in successfully","role":"admin","success":true,"timestamp":"2024-03-25T12:47:05.568Z","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoiamFuZS5zbWl0aEBleGFtcGxlLmNvbSIsImlhdCI6MTcxMTM3MDgyNSwiZXhwIjoxNzExOTc1NjI1fQ.eRjYwje3d-BPb5GFXXgItdPJinAHffnFai1iQokvVCo"}
 {"level":"info","message":"Get all company successfully","timestamp":"2024-03-25T12:48:39.794Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-25T12:55:19.384Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-25T12:56:11.092Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-25T18:20:38.350Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-27T13:58:19.010Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T13:58:38.746Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:00:28.993Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:02:18.421Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:02:21.092Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:10:01.415Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:11:05.937Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:11:57.249Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:11:58.618Z"}
+{"level":"info","message":"Get company with id=2. successfully","timestamp":"2024-03-27T14:13:56.972Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-27T14:15:48.685Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-27T14:26:44.336Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-27T14:27:16.029Z"}
+{"level":"info","message":"Get all company successfully","timestamp":"2024-03-27T14:27:17.815Z"}
+{"level":"info","message":"Cannot find company with id=5.","timestamp":"2024-03-27T14:41:52.506Z"}
+{"level":"info","message":"Cannot find company with id=5.","timestamp":"2024-03-27T14:45:22.019Z"}
+{"level":"info","message":"Cannot find company with id=5.","timestamp":"2024-03-27T14:45:30.913Z"}
+{"level":"info","message":"Add company successfully","timestamp":"2024-03-27T14:48:27.652Z"}
+{"level":"info","message":"Company 4 was updated successfully.","timestamp":"2024-03-27T14:52:47.884Z"}
+{"level":"info","message":"Get company with id=4. successfully","timestamp":"2024-03-27T14:54:03.814Z"}
+{"level":"info","message":"Company with id=${req.params.id} was deleted successfully!","timestamp":"2024-03-27T14:54:11.259Z"}
+{"level":"info","message":"Cannot delete company with id=7. Maybe company was not found!","timestamp":"2024-03-27T14:56:36.887Z"}
+{"level":"info","message":"Cannot update company with id=7. Maybe company was not found or req.body is empty!","timestamp":"2024-03-27T14:57:33.235Z"}
+{"level":"info","message":"Cannot find company with id=events.","timestamp":"2024-03-27T15:06:29.049Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:07:15.099Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:07:28.735Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:07:47.405Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:08:02.194Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:08:16.076Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:08:29.147Z"}
+{"level":"info","message":"Get all events successfully","timestamp":"2024-03-27T15:13:16.641Z"}
+{"level":"info","message":"Get Event with id=5. successfully","timestamp":"2024-03-27T15:14:37.473Z"}
+{"level":"info","message":"Get Event with id=7. successfully","timestamp":"2024-03-27T15:16:05.445Z"}
+{"level":"info","message":"Cannot find event with id=15.","timestamp":"2024-03-27T15:16:10.354Z"}
+{"level":"info","message":"Get all events successfully","timestamp":"2024-03-27T15:20:18.994Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:20:38.791Z"}
+{"level":"info","message":"Event with id=9 was updated successfully.","timestamp":"2024-03-27T15:22:30.239Z"}
+{"level":"info","message":"Event with id=9 was deleted successfully!","timestamp":"2024-03-27T15:24:13.281Z"}
+{"level":"info","message":"Cannot delete event with id=9. Maybe event was not found!","timestamp":"2024-03-27T15:26:20.081Z"}
+{"level":"info","message":"Cannot delete event with id=9. Maybe event was not found!","timestamp":"2024-03-27T15:26:27.765Z"}
+{"level":"info","message":"Get Event with id=5. successfully","timestamp":"2024-03-27T15:30:07.054Z"}
+{"level":"info","message":"Get all events successfully","timestamp":"2024-03-27T15:30:44.300Z"}
+{"level":"info","message":"Get Event with id=6. successfully","timestamp":"2024-03-27T15:30:47.300Z"}
+{"level":"info","message":"Create Event Successfully","timestamp":"2024-03-27T15:33:08.928Z"}
+{"level":"info","message":"Cannot update event with id=9. Maybe event was not found or req.body is empty!","timestamp":"2024-03-27T15:33:39.903Z"}
+{"level":"info","message":"Cannot update event with id=9. Maybe event was not found or req.body is empty!","timestamp":"2024-03-27T15:34:02.531Z"}
+{"level":"info","message":"Event with id=4 was updated successfully.","timestamp":"2024-03-27T15:35:11.056Z"}
+{"level":"info","message":"Get all events successfully","timestamp":"2024-03-27T15:35:25.493Z"}
+{"level":"info","message":"Get all events successfully","timestamp":"2024-03-27T15:36:08.259Z"}
+{"level":"info","message":"Event with id=4 was updated successfully.","timestamp":"2024-03-27T15:36:25.780Z"}
+{"level":"info","message":"Cannot delete event with id=9. Maybe event was not found!","timestamp":"2024-03-27T15:37:39.061Z"}
+{"level":"info","message":"Event with id=4 was deleted successfully!","timestamp":"2024-03-27T15:37:44.148Z"}
+{"level":"info","message":"Get All Skills successfully","timestamp":"2024-03-28T03:40:03.202Z"}
+{"level":"info","message":"Create Skill successfully","timestamp":"2024-03-28T03:41:29.452Z"}
+{"level":"info","message":"Create Skill successfully","timestamp":"2024-03-28T03:41:46.769Z"}
+{"level":"info","message":"Create Skill successfully","timestamp":"2024-03-28T03:41:59.603Z"}
+{"level":"info","message":"Get All Skills successfully","timestamp":"2024-03-28T03:42:18.630Z"}
+{"level":"info","message":"Get All Skills successfully","timestamp":"2024-03-28T03:42:31.779Z"}
+{"level":"info","message":"Get Skill with id 5 successfully","timestamp":"2024-03-28T03:45:00.221Z"}
+{"level":"info","message":"Cannot                                                                                                                                                            find Skill with id=0.","timestamp":"2024-03-28T03:47:05.515Z"}
+{"level":"info","message":"Create Skill successfully","timestamp":"2024-03-28T03:49:57.576Z"}
+{"level":"info","message":"Get Skill with id 6 successfully","timestamp":"2024-03-28T03:52:30.305Z"}
+{"level":"info","message":"Skill with id 6 was updated successfully.","timestamp":"2024-03-28T03:52:37.923Z"}
+{"level":"info","message":"Cannot update Skill with id=10. Maybe Skill was not found or req.body is empty!","timestamp":"2024-03-28T03:54:30.781Z"}
+{"level":"info","message":"Skill with id 6 was deleted successfully!","timestamp":"2024-03-28T03:55:24.001Z"}
+{"level":"info","message":"Cannot delete Skill with id=10. Maybe Skill was not found!","timestamp":"2024-03-28T03:56:26.945Z"}
+{"level":"info","message":"Cannot update event with id=20. Maybe event was not found or req.body is empty!","timestamp":"2024-03-28T03:57:40.673Z"}
+{"level":"info","message":"Cannot update company with id=10. Maybe company was not found or req.body is empty!","timestamp":"2024-03-28T03:59:56.401Z"}
+{"level":"error","message":"notNull Violation: Project.name cannot be null,\nnotNull Violation: Project.description cannot be null,\nnotNull Violation: Project.cost cannot be null,\nnotNull Violation: Project.status cannot be null,\nnotNull Violation: Project.level cannot be null,\nnotNull Violation: Project.owner cannot be null,\nnotNull Violation: Project.project_manager_id cannot be null","timestamp":"2024-03-28T04:04:47.294Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:05:04.831Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:05:16.032Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:06:54.405Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:07:17.634Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:09:37.024Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:10:19.370Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:10:51.296Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:11:56.103Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:12:07.820Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:12:17.042Z"}
+{"level":"info","message":"Get All Tools successfully","timestamp":"2024-03-28T04:12:29.765Z"}
+{"level":"info","message":"Get All Tools successfully","timestamp":"2024-03-28T04:13:10.642Z"}
+{"level":"info","message":"Get Tool with id 3 successfully","timestamp":"2024-03-28T04:15:20.232Z"}
+{"level":"info","message":"Get Tool with id 3 successfully","timestamp":"2024-03-28T04:15:34.879Z"}
+{"level":"info","message":"Cannot find Tool with id=10.","timestamp":"2024-03-28T04:16:52.643Z"}
+{"level":"info","message":"Create Tool successfully","timestamp":"2024-03-28T04:18:46.562Z"}
+{"level":"info","message":"Tool with id 3 was updated successfully.","timestamp":"2024-03-28T04:21:16.064Z"}
+{"level":"info","message":"Cannot update Tool with id=10. Maybe Tool was not found or req.body is empty!","timestamp":"2024-03-28T04:22:41.973Z"}
+{"level":"info","message":"Tool with id 3 was updated successfully.","timestamp":"2024-03-28T04:23:50.262Z"}
+{"level":"info","message":"Tool with id 3 was deleted successfully!","timestamp":"2024-03-28T04:24:24.853Z"}
+{"level":"info","message":"Cannot delete Tool with id=10. Maybe Tool was not found!","timestamp":"2024-03-28T04:25:11.759Z"}
+{"level":"info","message":"Get All Users successfully","timestamp":"2024-03-29T13:14:45.018Z"}
+{"level":"info","message":"Create User successfully","timestamp":"2024-03-29T13:23:10.450Z"}
+{"level":"error","message":"Validation error","timestamp":"2024-03-29T13:24:14.940Z"}
+{"level":"info","message":"Create User successfully","timestamp":"2024-03-29T13:24:33.221Z"}
+{"level":"info","message":"Get All Users successfully","timestamp":"2024-03-29T13:24:51.671Z"}
+{"level":"info","message":"Get All Tools successfully","timestamp":"2024-03-29T13:25:45.306Z"}
+{"level":"info","message":"Get User with id 1 successfully","timestamp":"2024-03-29T13:27:33.185Z"}
+{"level":"info","message":"Cannot find User with id=3.","timestamp":"2024-03-29T13:28:46.626Z"}
+{"level":"info","message":"Create User successfully","timestamp":"2024-03-29T13:29:50.165Z"}
+{"level":"info","message":"User with id 1 was updated successfully.","timestamp":"2024-03-29T13:31:55.276Z"}
+{"level":"info","message":"Cannot update User with id=10. Maybe User was not found or req.body is empty!","timestamp":"2024-03-29T13:32:35.096Z"}
+{"level":"info","message":"User with id 2 was deleted successfully!","timestamp":"2024-03-29T13:33:07.705Z"}
+{"level":"info","message":"Cannot delete User with id=10. Maybe User was not found!","timestamp":"2024-03-29T13:33:32.983Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-29T14:09:30.538Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-29T14:12:32.060Z"}
+{"level":"info","message":"Show relations between Company and Event successfully","timestamp":"2024-03-29T14:49:17.040Z"}
+{"level":"info","message":"Show relations between Company and Event successfully","timestamp":"2024-03-29T14:49:57.159Z"}
+{"level":"info","message":"Show relations between Company and Event successfully","timestamp":"2024-03-29T14:52:00.928Z"}
+{"level":"info","message":"Show relations between Company and Event successfully","timestamp":"2024-03-29T14:52:12.227Z"}
+{"level":"info","message":"Get all events by company id: 2 successfully","timestamp":"2024-03-29T14:53:58.593Z"}
+{"level":"info","message":"Get all events by company id: 2 successfully","timestamp":"2024-03-29T14:54:02.049Z"}
+{"level":"info","message":"Get all events by company id: 2 successfully","timestamp":"2024-03-29T14:54:05.541Z"}
+{"level":"info","message":"The Company with id=80 has not manage any Event yet.","timestamp":"2024-03-29T14:54:10.569Z"}
+{"level":"info","message":"Get all events by company id: 2 successfully","timestamp":"2024-03-29T14:54:21.340Z"}
+{"level":"info","message":"The Company with id=50 has not manage any Event yet.","timestamp":"2024-03-29T14:55:41.301Z"}
+{"level":"info","message":"Relation between Company and Event successfully created","timestamp":"2024-03-29T14:59:42.744Z"}
+{"level":"info","message":"Relation between Company and Event successfully created","timestamp":"2024-03-29T14:59:49.561Z"}
+{"level":"error","message":"Validation error","timestamp":"2024-03-29T15:00:00.612Z"}
+{"level":"info","message":"Relation between Company and Event successfully created","timestamp":"2024-03-29T15:00:24.227Z"}
+{"level":"info","message":"Get all Companies by Event id: 5 successfully","timestamp":"2024-03-29T15:10:07.624Z"}
+{"level":"info","message":"Show relations between Company and Event successfully","timestamp":"2024-03-29T15:11:42.082Z"}
+{"level":"info","message":"Get all events by company id: 2 successfully","timestamp":"2024-03-29T15:12:52.119Z"}
+{"level":"info","message":"The Company with id=10 has not manage any Event yet.","timestamp":"2024-03-29T15:13:16.419Z"}
+{"level":"info","message":"Relation between Company and Event successfully created","timestamp":"2024-03-29T15:15:34.406Z"}
+{"level":"info","message":"Relation with id 6 was deleted successfully!","timestamp":"2024-03-29T15:16:58.407Z"}
+{"level":"info","message":"Cannot delete Relation with id=10. Maybe Relation was not found!","timestamp":"2024-03-29T15:19:13.228Z"}
+{"level":"info","message":"Get All Project Tool Relations successfully","timestamp":"2024-03-30T05:39:49.334Z"}
+{"level":"error","message":"Unknown column 'ProjectsTools.ToolId' in 'where clause'","timestamp":"2024-03-30T05:58:51.342Z"}
+{"level":"error","message":"Unknown column 'ProjectsTools.ProjectId' in 'where clause'","timestamp":"2024-03-30T05:59:44.391Z"}
+{"level":"info","message":"Create Project Tool Relation successfully","timestamp":"2024-03-30T06:36:41.131Z"}
+{"level":"info","message":"Create Project Tool Relation successfully","timestamp":"2024-03-30T06:37:29.011Z"}
+{"level":"info","message":"Get All Project Tool Relations successfully","timestamp":"2024-03-30T06:37:34.746Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:39:07.855Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:40:35.687Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:42:33.884Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:43:44.783Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-30T07:31:30.429Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-30T07:58:22.191Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-30T08:07:18.822Z"}
+{"level":"error","message":"Cannot add or update a child row: a foreign key constraint fails (`communicraft`.`projects`, CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`project_manager_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2024-03-30T08:16:38.570Z"}
+{"level":"info","message":"Create Project successfully","timestamp":"2024-03-30T08:16:52.595Z"}

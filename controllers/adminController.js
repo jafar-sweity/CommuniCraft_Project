@@ -4,6 +4,11 @@ import * as SkillController from './skillController.js';
 import * as ProjectController from './projectController.js';
 import * as ToolController from './toolController.js';
 import * as UserController from './userController.js';
+import * as CompaniesEventController from './companiesEventController.js';
+import * as ProjectsToolsController from './projectsToolsController.js';
+import * as UsersEventsController from './userEventController.js';
+import * as UsersSkillsController from './userSkillController.js';
+import * as UsersToolsController from './userToolController.js';
 
 //company
 const adminCreateCompany = (req, res) => {
@@ -138,6 +143,115 @@ const adminDeleteUser = (req, res) => {
   UserController.deleteUser(req, res);
 };
 
+// CompaniesEvents
+const adminCreateCompanyEventRelation = (req, res) => {
+  CompaniesEventController.createCompanyEventRelation(req, res);
+};
+
+const adminGetAllCompanyEventRelations = (req, res) => {
+  CompaniesEventController.getAllCompanyEventRelations(req, res);
+};
+
+const adminGetEventsByCompanyId = (req, res) => {
+  CompaniesEventController.getEventsByCompanyId(req, res);
+};
+
+const adminGetCompaniesByEventId = (req, res) => {
+  CompaniesEventController.getCompniesByEventId(req, res); 
+};
+
+const adminDeleteCompanyEventRelation = (req, res) => {
+  CompaniesEventController.deleteCompanyEventRelation(req, res);
+};
+
+// ProjectsTools
+const adminCreateProjectToolRelation = (req, res) => {
+  ProjectsToolsController.createProjectToolRelation(req, res);
+};
+
+const adminGetAllProjectToolRelations = (req, res) => {
+  ProjectsToolsController.getAllProjectToolRelations(req, res);
+};
+
+const adminGetProjectsByToolId = (req, res) => {
+  ProjectsToolsController.getProjectsByToolId(req, res);
+};
+
+const adminGetToolsByProjectId = (req, res) => {
+  ProjectsToolsController.getToolsByProjectId(req, res);
+};
+
+const adminDeleteProjectToolRelation = (req, res) => {
+  ProjectsToolsController.deleteProjectToolRelation(req, res);
+};
+
+// UsersEvents
+const adminCreateUserEventRelation = (req, res) => {
+  UsersEventsController.createUserEventRelation(req, res);
+};
+
+const adminGetAllUserEventRelations = (req, res) => {
+  UsersEventsController.getAllUserEventRelations(req, res);
+};
+
+const adminGetEventsByUserId = (req, res) => {
+  UsersEventsController.getEventsByUserId(req, res);
+};
+
+const adminGetUsersByEventId = (req, res) => {
+  UsersEventsController.getUsersByEventId(req, res);
+};
+
+const adminDeleteUserEventRelation = (req, res) => {
+  UsersEventsController.deleteUserEventRelation(req, res);
+};
+
+// UsersSkills operations
+const adminCreateUserSkillRelation = (req, res) => {
+  UsersSkillsController.createUserSkillRelation(req, res);
+};
+
+const adminGetAllUserSkillRelations = (req, res) => {
+  UsersSkillsController.getAllUserSkillRelations(req, res);
+};
+
+const adminGetSkillsForUserByUserId = (req, res) => {
+  UsersSkillsController.getSkillsForUserByUserId(req, res);
+};
+
+const adminGetUsersBySkillId = (req, res) => {
+  UsersSkillsController.getUsersBySkillId(req, res);
+};
+
+const adminDeleteUserSkillRelation = (req, res) => {
+  UsersSkillsController.deleteUserSkillRelation(req, res);
+};
+
+// UsersTools operations
+const adminCreateUserToolRelation = (req, res) => {
+  UsersToolsController.createUserToolRelation(req, res);
+};
+
+const adminShowSharingTools = (req, res) => {
+  UsersToolsController.showSharingTools(req, res);
+};
+
+const adminGetToolsForUserByUserId = (req, res) => {
+  UsersToolsController.geToolsForUserByUserId(req, res);
+};
+
+const adminGetUsersByToolId = (req, res) => {
+  UsersToolsController.getUsersByToolId(req, res);
+};
+
+const adminUpdateUserTool = (req, res) => {
+  UsersToolsController.updateUserTool(req, res);
+};
+
+const adminDeleteUserToolRelation = (req, res) => {
+  UsersToolsController.deleteUserToolRelation(req, res);
+};
+
 export {
   adminCreateCompany,
   adminGetAllCompanies,
@@ -173,5 +287,36 @@ export {
   adminGetAllUsers,
   adminGetUserById,
   adminUpdateUser,
-  adminDeleteUser
+  adminDeleteUser,
+
+  adminCreateCompanyEventRelation,
+  adminGetAllCompanyEventRelations,
+  adminGetEventsByCompanyId,
+  adminGetCompaniesByEventId,
+  adminDeleteCompanyEventRelation,
+
+  adminCreateProjectToolRelation,
+  adminGetAllProjectToolRelations,
+  adminGetProjectsByToolId,
+  adminGetToolsByProjectId,
+  adminDeleteProjectToolRelation,
+
+  adminCreateUserEventRelation,
+  adminGetAllUserEventRelations,
+  adminGetEventsByUserId,
+  adminGetUsersByEventId,
+  adminDeleteUserEventRelation,
+
+  adminCreateUserSkillRelation,
+  adminGetAllUserSkillRelations,
+  adminGetSkillsForUserByUserId,
+  adminGetUsersBySkillId,
+  adminDeleteUserSkillRelation,
+
+  adminCreateUserToolRelation,
+  adminShowSharingTools,
+  adminGetToolsForUserByUserId,
+  adminGetUsersByToolId,
+  adminUpdateUserTool,
+  adminDeleteUserToolRelation,
 };

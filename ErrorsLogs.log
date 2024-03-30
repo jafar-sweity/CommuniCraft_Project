@@ -1,0 +1,19 @@
+{"level":"error","message":"notNull Violation: Project.name cannot be null,\nnotNull Violation: Project.description cannot be null,\nnotNull Violation: Project.cost cannot be null,\nnotNull Violation: Project.status cannot be null,\nnotNull Violation: Project.level cannot be null,\nnotNull Violation: Project.owner cannot be null,\nnotNull Violation: Project.project_manager_id cannot be null","timestamp":"2024-03-28T04:04:47.294Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:05:04.831Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:05:16.032Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:06:54.405Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-28T04:07:17.634Z"}
+{"level":"error","message":"Validation error","timestamp":"2024-03-29T13:24:14.940Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-29T14:09:30.538Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-29T14:12:32.060Z"}
+{"level":"error","message":"Validation error","timestamp":"2024-03-29T15:00:00.612Z"}
+{"level":"error","message":"Unknown column 'ProjectsTools.ToolId' in 'where clause'","timestamp":"2024-03-30T05:58:51.342Z"}
+{"level":"error","message":"Unknown column 'ProjectsTools.ProjectId' in 'where clause'","timestamp":"2024-03-30T05:59:44.391Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:39:07.855Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:40:35.687Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:42:33.884Z"}
+{"level":"error","message":"Unknown column 'level' in 'field list'","timestamp":"2024-03-30T06:43:44.783Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-30T07:31:30.429Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-30T07:58:22.191Z"}
+{"level":"error","message":"notNull Violation: Project.level cannot be null","timestamp":"2024-03-30T08:07:18.822Z"}
+{"level":"error","message":"Cannot add or update a child row: a foreign key constraint fails (`communicraft`.`projects`, CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`project_manager_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)","timestamp":"2024-03-30T08:16:38.570Z"}
