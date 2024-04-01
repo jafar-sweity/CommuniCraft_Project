@@ -56,7 +56,7 @@ The API is fully documented using Postman. Access the documentation [here] ([lin
 
 ## Getting Started
 
-To get started with EcoTrack API, follow these steps:
+To get started with CommuniCraft API, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/jafar-sweity/CommuniCraft_Project` 
 2. Install dependencies: `npm install`
