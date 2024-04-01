@@ -1,5 +1,6 @@
 import supertest from 'supertest';
 import { app } from '../app.js';
+import Skill  from '../models/Skill.js';
 describe('Admin Routes - Skills', () => {
   afterAll(async () => {
     // remove all skills that were created during the tests
