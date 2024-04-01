@@ -1,21 +1,29 @@
 import supertest from 'supertest';
 import {app} from '../app.js';
-
+import User from '../models/User.js';
 describe('Authentication Routes', () => {
 
   describe('Signup', () => {
+
+  afterAll(async () => {
+    // remove all users that were created during the tests
+    await User.destroy({ where: {
+      email: "jafar@gmail.com"
+    } });
+  });
+
   it('should signup a new user successfully', async () => {
 
     const userData = {
-      name: 'shahd',
-      role: 'user',
+      name: 'jafar',
+      role: 'admin',
       status: 'active',
-      email: 'shahd22@gmail.com',
-      mobile_number: '11234567890',
+      email: 'jafar@gmail.com',
+      mobile_number: '123456789',
       password: 'password123',
       profile_picture_url: 'https://example.com/profile.jpg',
       bio: 'I am a software engineer',
-      salary: 10000
+      salary: 35000
     };
 
     const response = await supertest(app)
@@ -29,10 +37,10 @@ describe('Authentication Routes', () => {
   
   it ('should fail signup with existing email', async () => {
     const userData = {
-      name: 'farah',
+      name: 'sweity',
       role: 'user',
       status: 'active',
-      email: 'farah@gmail.com',
+      email: 'sweity@gmail.com',
       mobile_number: '0593912123',
       password: 'password123',
       profile_picture_url: 'https://example.com/profile.jpg',
@@ -72,7 +80,7 @@ describe('Authentication Routes', () => {
 describe('Login', () => {
   it('should login a user successfully', async () => {
     const userData = {
-      email: 'ahmad@gmail.com',
+      email: 'sweity@gmail.com',
       password: 'password123'
     };
     const response = await supertest(app)
@@ -100,7 +108,7 @@ describe('Login', () => {
 
   it('should fail login with wrong password', async () => {
     const userData = {
-      email: 'jafar@gmail.com',
+      email: 'sweity@gmail.com',
       password: 'password1234'
     };
     const response = await supertest(app)

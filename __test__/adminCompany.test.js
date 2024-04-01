@@ -3,10 +3,17 @@ import { app } from '../app.js';
 
 // companies test
 describe('Admin Routes - Companies', () => {
+  afterAll(async () => {
+    // remove all companies that were created during the tests
+    await Company.destroy({ where: {
+      name: "jafar Company"
+    } });
+  });
+  
   it('should create a new company successfully', async () => {
     const companyData = {
-      name: 'Test Company',
-      location: 'Test Location'
+      name: 'jafar Company',
+      location: 'hebron'
     };
 
     const response = await supertest(app)
@@ -14,13 +21,13 @@ describe('Admin Routes - Companies', () => {
       .send(companyData);
 
     expect(response.status).toBe(201);
-    expect(response.body.name).toBe('Test Company');
-    expect(response.body.location).toBe('Test Location');
+    expect(response.body.name).toBe('jafar Company');
+    expect(response.body.location).toBe('hebron');
   });
 
   it('should fail to create a company with missing fields', async () => {
     const companyData = {
-      location: 'Test Location'
+      location: 'ahmad tech'
     };
 
     const response = await supertest(app)
@@ -40,7 +47,7 @@ describe('Admin Routes - Companies', () => {
   });
 
   it('should get a specific company by ID successfully', async () => {
-    const companyId = '4';
+    const companyId = '1';
 
     const response = await supertest(app)
       .get(`/admin/companies/${companyId}`);
@@ -50,10 +57,10 @@ describe('Admin Routes - Companies', () => {
   });
 
   it('should update a company successfully', async () => {
-    const companyId = '4';
+    const companyId = '1';
     const updatedCompanyData = {
-      name: 'Updated Company Name',
-      location: 'Updated Location'
+      name: 'shahd Company',
+      location: 'nablus'
     };
 
     const response = await supertest(app)
@@ -65,7 +72,7 @@ describe('Admin Routes - Companies', () => {
   });
 
   it('should delete a company successfully', async () => {
-    const companyId = '4';
+    const companyId = '1';
 
     const response = await supertest(app)
       .delete(`/admin/companies/${companyId}`);

@@ -1,8 +1,15 @@
 import supertest from 'supertest';
 import { app } from '../app.js';
+import Tool  from '../models/Tool.js';
 
 
 describe('Admin Routes - Tools', () => {
+  afterAll(async () => {
+    await Tool.destroy({ where: {
+      name: 'Test Tool'
+    } });
+  });
+  
   it('should create a new tool successfully', async () => {
     const toolData = {
       name: 'Test Tool',

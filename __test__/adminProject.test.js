@@ -1,7 +1,16 @@
 import supertest from 'supertest';
 import { app } from '../app.js';
+import Project from '../models/Project.js';
 
 describe('Admin Routes - Projects', () => {
+  afterAll(async () => {
+    // remove all projects that were created during the tests
+    await Project.destroy({ where: {
+      name: 'Test Project'
+    } });
+
+  });
+  
   it('should create a new project successfully', async () => {
     const projectData = {
       name: 'Test Project',
@@ -21,7 +30,6 @@ describe('Admin Routes - Projects', () => {
     expect(response.status).toBe(201);
     expect(response.body.name).toBe('Test Project');
     expect(response.body.description).toBe('Test Description');
-    // Add assertions for other fields as needed
   });
 
   it('should get all projects successfully', async () => {

@@ -1,6 +1,12 @@
 import supertest from 'supertest';
 import { app } from '../app.js';
+import Skill  from '../models/Skill.js';
 describe('Admin Routes - Skills', () => {
+  afterAll(async () => {
+    // remove all skills that were created during the tests
+    // await Skill.destroy({ where: {} });
+  });
+  
   it('should create a new skill successfully', async () => {
     const skillData = {
       name: 'Test Skill',
@@ -39,7 +45,7 @@ describe('Admin Routes - Skills', () => {
 
   it('should get a specific skill by ID successfully', async () => {
     const skillId = '1';
-
+    
     const response = await supertest(app)
       .get(`/admin/skills/${skillId}`);
 
