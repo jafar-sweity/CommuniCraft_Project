@@ -1,15 +1,21 @@
 import User from '../models/User.js';
+import supertest from 'supertest';
+import app from 'your/app'; // Import your Express app instance
 
 describe('Admin Routes - Users', () => {
 
   afterAll(async () => {
-   // remove all users that were created during the tests 
-    await User.destroy({ where: {} });
+    // remove all users that were created during the tests 
+    await User.destroy({ where: {
+      email: 'jafar@gmail.com'
+    } });
   });
 
   it('should create a new user successfully', async () => {
     const userData = {
-      // Provide necessary user data for creation
+      name: 'Jafar',
+      email: 'jafar@gmail.com',
+      password: 'password1234'
     };
 
     const response = await supertest(app)
@@ -22,7 +28,9 @@ describe('Admin Routes - Users', () => {
 
   it('should return 400 if email or password is missing during user creation', async () => {
     const userData = {
+      name: 'Ahmad',
       // Missing email or password
+      password: 'password1234'
     };
 
     const response = await supertest(app)
@@ -35,10 +43,12 @@ describe('Admin Routes - Users', () => {
 
   it('should return 400 if user with the same email already exists', async () => {
     // Assuming you have a pre-existing user in your test database
-    const existingUser = await User.findOne({ where: { /* provide query to find an existing user */ } });
+    const existingUser = await User.findOne({ where: { email: 'farah@gmail.com' } });
 
     const userData = {
-      // Provide user data with an email that already exists
+      name: 'Farah',
+      email: 'farah@gmail.com',
+      password: 'password1234'
     };
 
     const response = await supertest(app)
@@ -51,7 +61,9 @@ describe('Admin Routes - Users', () => {
 
   it('should return 400 if email is invalid during user creation', async () => {
     const userData = {
-      // Provide user data with an invalid email format
+      name: 'Shahd',
+      email: 'invalidemail',
+      password: 'password1234'
     };
 
     const response = await supertest(app)
@@ -64,7 +76,9 @@ describe('Admin Routes - Users', () => {
 
   it('should return 400 if password is less than 6 characters during user creation', async () => {
     const userData = {
-      // Provide user data with a password less than 6 characters
+      name: 'Farah',
+      email: 'farah@gmail.com',
+      password: '12345' // Password less than 6 characters
     };
 
     const response = await supertest(app)
@@ -86,7 +100,7 @@ describe('Admin Routes - Users', () => {
   // Assuming you have at least one user in the database
   it('should get a specific user by ID successfully', async () => {
     // Assuming you have a valid user ID in your database
-    const userId = 'valid_user_id';
+    const userId = '1';
 
     const response = await supertest(app)
       .get(`/admin/users/${userId}`);
@@ -98,7 +112,7 @@ describe('Admin Routes - Users', () => {
   // Assuming you have at least one user in the database
   it('should update a user successfully', async () => {
     // Assuming you have a valid user ID in your database
-    const userId = 'valid_user_id';
+    const userId = '1';
     const updatedUserData = {
       // Provide updated user data
     };
@@ -114,7 +128,7 @@ describe('Admin Routes - Users', () => {
   // Assuming you have at least one user in the database
   it('should delete a user successfully', async () => {
     // Assuming you have a valid user ID in your database
-    const userId = 'valid_user_id';
+    const userId = '1';
 
     const response = await supertest(app)
       .delete(`/admin/users/${userId}`);
