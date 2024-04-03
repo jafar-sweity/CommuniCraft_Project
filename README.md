@@ -20,12 +20,11 @@ advanced.
 facilitating connections with others seeking collaborators.
 3. **Collaborative Planning:** Integrated communication tools and project planning features
 allow teams to coordinate and share ideas.
-4. **Community Reporting:** Allows users to report environmental issues such as pollution, deforestation, or wildlife endangerment.
-5. **Resource Sharing:** Users can list available materials and tools, promoting
+4. **Resource Sharing:** Users can list available materials and tools, promoting
 resourcefulness and reducing individual costs.
-6. **Showcase and Sharing:** The platform facilitates sharing finished projects, fostering
+5. **Showcase and Sharing:** The platform facilitates sharing finished projects, fostering
 community engagement, and inspiring others.
-7. **Local Partnership Integration:** Connects users with local craft stores, workshops, and
+6. **Local Partnership Integration:** Connects users with local craft stores, workshops, and
 artisans, promoting local businesses and knowledge sharing.
 
 
